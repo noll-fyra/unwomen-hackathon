@@ -74,7 +74,7 @@ app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
 
 app.post('/sms', (req, res) => {
-  console.log(req, req.body)
+  console.log('req ' + req + ' ' + 'req.body ' + ' ' + req.body)
   var twiml = new twilio.TwimlResponse()
   twiml.message('The Robots are coming! Head for the hills! Testtest!')
   res.writeHead(200, {'Content-Type': 'text/xml'})
