@@ -2,3 +2,39 @@
   <input type="text" name="address" value="">
   <input type="submit" name="" value="find address">
 </form>
+<form id="locform" class="" action="/map" method="post">
+  <input type="hidden" id="yourlat" name="yourlat" value="">
+  <input type="hidden" id="yourlong" name="yourlong" value="">
+  <button id="getLocationButton" type="button">
+    or use your current location</button>
+</form>
+<p id="demo"></p>
+
+<script>
+  var x = document.getElementById("demo")
+  var getLocationButton = document.getElementById("getLocationButton")
+  var yourlat = document.getElementById("yourlat")
+  var yourlong = document.getElementById("yourlong")
+  var locform = document.getElementById("locform")
+
+  getLocationButton.addEventListener('click', () => {
+    getLocation()
+  })
+
+  function getLocation() {
+    console.log('hello');
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    console.log(position);
+    x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+    yourlat.value = position.coords.latitude
+    yourlong.value = position.coords.longitude
+    locform.submit()
+  }
+</script>

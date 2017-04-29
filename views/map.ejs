@@ -83,8 +83,8 @@
 
       function initMap() {
         var toSearch = {
-          lat: parseFloat("<%= map.results[0].geometry.location.lat %>"),
-          lng: parseFloat("<%= map.results[0].geometry.location.lng %>")
+          lat: parseFloat("<%= mapLat %>"),
+          lng: parseFloat("<%= mapLong %>")
         };
 
         map = new google.maps.Map(document.getElementById('map'), {
