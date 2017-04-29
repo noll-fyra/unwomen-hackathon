@@ -43,16 +43,17 @@
     }
 
     $(function() {
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
+      navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.mediaDevices.webkitGetUserMedia || navigator.mediaDevices.mozGetUserMedia
 
-      if (navigator.getUserMedia) {
+      if (navigator.mediaDevices.getUserMedia) {
         navigator.getUserMedia({
-          video: true
+          video: true,
+          audio: true
         }, loadCam, loadFail);
       }
       setInterval(function() {
         viewVideo(video, context);
-      }, freq * 10);
+      }, freq * 100)
     })
   }
 
