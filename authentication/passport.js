@@ -17,10 +17,10 @@ passport.deserializeUser(function (id, done) {
 
 // check if the user's login details are correct
 passport.use(new LocalStrategy({
-  usernameField: 'email',
+  usernameField: 'phone',
   passwordField: 'password'
-}, function (email, password, done) {
-  User.findOne({ email: email }, function (err, user) {
+}, function (phone, password, done) {
+  User.findOne({ phone: phone }, function (err, user) {
     if (err) return done(err)
     if (!user) return done(null, false)
     if (!user.validPassword(password)) return done(null, false)

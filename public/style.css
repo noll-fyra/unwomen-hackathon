@@ -123,6 +123,13 @@ button {
   margin-bottom: 50px;
 }
 
+
 .hide{
   display:none;
 }
+
+#chart {
+  width: 40%;
+  margin-left: 10%;
+}
+
