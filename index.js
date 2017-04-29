@@ -4,6 +4,7 @@ require('dotenv').config({silent: true})
 // set up express
 const express = require('express')
 const app = express()
+const http = require('http')
 
 // set up the database
 const mongoose = require('mongoose')
@@ -19,6 +20,9 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./authentication/passport')
 const flash = require('connect-flash')
+
+// sms
+const twilio = require('twilio')
 
 // connect to the database
 if (!mongoose.connection.db) mongoose.connect(dbURI)
@@ -69,7 +73,14 @@ app.use('/map', require('./controllers/mapController'))
 app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
 
+app.post('/sms', (req, res) => {
+  console.log(req, req.body)
+  var twiml = new twilio.TwimlResponse()
+  twiml.message('The Robots are coming! Head for the hills! Testtest!')
+  res.writeHead(200, {'Content-Type': 'text/xml'})
+  res.end(twiml.toString())
+})
 
-app.listen(port, () => {
+http.createServer(app).listen(port, () => {
   console.log('App is running on port: ' + port)
 })
