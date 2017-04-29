@@ -30,8 +30,19 @@ return filteredOptions
 router.get('/', (req, res) => {
   User.find({}).exec((err, data) => {
     if (err) throw err
-    const filteredOptions = filterOptions(true, true, 'routine', true)
-    res.render('./decide/decide', {users: data, options: filteredOptions})
+    const filteredOptions = filterOptions(
+      req.query.has_steady_partner,
+      req.query.need_to_be_well_organised,
+      req.query.when_think_about,
+      req.query.hormone_altering
+    )
+    const formValues = {
+      has_steady_partner: req.query.has_steady_partner,
+      need_to_be_well_organised: req.query.need_to_be_well_organised,
+      when_think_about: req.query.when_think_about,
+      hormone_altering: req.query.hormone_altering
+    };
+    res.render('./decide/decide', {users: data, options: filteredOptions, formValues: formValues})
   })
 })
 
