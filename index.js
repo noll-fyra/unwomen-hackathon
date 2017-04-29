@@ -57,7 +57,12 @@ app.use((req, res, next) => {
 
 // routes
 app.use((req, res) => {
-  res.render('./index')
+  res.render('./index/index', {})
+})
+
+app.get('/option/:optionID', function (req, res) {
+  const optionID = req.params.optionID
+  res.send(optionID)
 })
 
 app.listen(port, () => {
