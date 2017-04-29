@@ -25,6 +25,7 @@ module.exports = function (socket) {
     var room = socket.roomID
     io.emit('left', room)
     console.log('leaving ' + room)
+    io.sockets.in(room).emit('chat message', 'The user has left')
   })
 
   // medpros join the in-need party's room
