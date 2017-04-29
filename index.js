@@ -1,8 +1,12 @@
-var express = require('express')
-var app = express()
+const express = require('express');
+const app = express();
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.use(express.static('dist'));
 
 app.get('/', function (req, res) {
-  res.send('Home')
+  res.render('index', {});
 });
 
 app.get('/option/:optionID', function (req, res) {
