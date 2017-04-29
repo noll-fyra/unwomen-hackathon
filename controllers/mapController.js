@@ -14,10 +14,10 @@ router.post('/', (req, res) => {
       if (err) throw err
       res.render('./map', {mapLat: data.results[0].geometry.location.lat, mapLong: data.results[0].geometry.location.lng})
     })
-  } else if (req.body.yourlat && req.body.yourlong) {
-    res.render('./map', {mapLat: req.body.yourlat, mapLong: req.body.yourlong})
+  } else if (req.body.yourLat && req.body.yourLong) {
+    res.render('./map', {mapLat: req.body.yourLat, mapLong: req.body.yourLong})
   } else {
-    res.send('error finding location please go back and try again')
+    res.send('There was an error finding your location. Please go back and try again.')
   }
 })
 

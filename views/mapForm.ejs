@@ -1,21 +1,24 @@
+Enter an address:
 <form class="" action="/map" method="post">
   <input type="text" name="address" value="">
   <input type="submit" name="" value="find address">
 </form>
-<form id="locform" class="" action="/map" method="post">
-  <input type="hidden" id="yourlat" name="yourlat" value="">
-  <input type="hidden" id="yourlong" name="yourlong" value="">
+
+<form id="yourLocationForm" class="" action="/map" method="post">
+  <input type="hidden" id="yourLat" name="yourLat" value="">
+  <input type="hidden" id="yourLong" name="yourLong" value="">
   <button id="getLocationButton" type="button">
-    or use your current location</button>
+    Or use your current location</button>
 </form>
-<p id="demo"></p>
+
+<p id="notSupported"></p>
 
 <script>
-  var x = document.getElementById("demo")
+  var notSupported = document.getElementById("notSupported")
   var getLocationButton = document.getElementById("getLocationButton")
-  var yourlat = document.getElementById("yourlat")
-  var yourlong = document.getElementById("yourlong")
-  var locform = document.getElementById("locform")
+  var yourLat = document.getElementById("yourLat")
+  var yourLong = document.getElementById("yourLong")
+  var yourLocationForm = document.getElementById("yourLocationForm")
 
   getLocationButton.addEventListener('click', () => {
     getLocation()
@@ -24,17 +27,15 @@
   function getLocation() {
     console.log('hello');
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(useYourLocation);
     } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
+      notSupported.innerHTML = "Geolocation is not supported by this browser.";
     }
   }
 
-  function showPosition(position) {
-    console.log(position);
-    x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-    yourlat.value = position.coords.latitude
-    yourlong.value = position.coords.longitude
-    locform.submit()
+  function useYourLocation(position) {
+    yourLat.value = position.coords.latitude
+    yourLong.value = position.coords.longitude
+    yourLocationForm.submit()
   }
 </script>
