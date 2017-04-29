@@ -30,8 +30,23 @@ return filteredOptions
 router.get('/', (req, res) => {
   User.find({}).exec((err, data) => {
     if (err) throw err
-    const filteredOptions = filterOptions(true, true, 'routine', true)
-    res.render('./decide/decide', {users: data, options: filteredOptions})
+    const filteredOptions = filterOptions(
+      req.query.has_steady_partner,
+      req.query.need_to_be_well_organised,
+      req.query.when_think_about,
+      req.query.hormone_altering
+    )
+    let nextQuestion = 'need_to_be_well_organised';
+    if (req.query.hormone_altering !== undefined) {
+      nextQuestion = 'complete';
+    } else if (req.query.when_think_about !== undefined) {
+      nextQuestion = 'hormone_altering'
+    } else if (req.query.need_to_be_well_organised !== undefined) {
+      nextQuestion = 'when_think_about'
+    } else if (req.query.has_steady_partner !== undefined) {
+      nextQuestion = 'need_to_be_well_organised'
+    }
+    res.render('./decide/decide', {users: data, options: filteredOptions, nextQuestion: nextQuestion})
   })
 })
 
