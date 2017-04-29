@@ -4,7 +4,7 @@ var twilio = require('twilio')
 var User = require('../models/user')
 
 // the home page
-router.post('/sms', (req, res) => {
+router.post('/', (req, res) => {
   // console.log('the real one = req.body.Body and req.body.From')
   // console.log(req.body.Body)
   // console.log('end')
