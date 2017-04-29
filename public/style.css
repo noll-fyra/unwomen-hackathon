@@ -63,3 +63,12 @@ h1 {
 .c-options__option--inactive {
   background: grey;
 }
+
+.c-pros-cons {
+  list-style: disc;
+  padding: 10px;
+}
+
+.c-pros-cons li {
+  margin-bottom: 10px;
+}
