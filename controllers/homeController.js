@@ -6,7 +6,7 @@ var User = require('../models/user')
 router.get('/', (req, res) => {
   User.find({}).exec((err, data) => {
     if (err) throw err
-    res.render('./index/index', {users: data,})
+    res.render('./index/index', {users: data})
   })
 })
 

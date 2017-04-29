@@ -1,0 +1,31 @@
+<h1>advice</h1>
+<%= person.name %>
+<ul id="messages"></ul>
+<form action="">
+  <input id="m" autocomplete="off"/>
+  <button>Send</button>
+</form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  var socket = io.connect()
+  var room = "<%= room %>"
+  socket.on('connect', function() {
+    socket.emit('seek', room)
+    console.log('joining ' + room)
+  })
+  // socket.on('disconnected', function() {   socket.emit('left', room)   console.log('leaving ' + room) }) var form = document.querySelector('form')
+  $('form').submit(function(e) {
+    socket.emit('chat message', {
+      message: $('#m').val(),
+      room: room
+    });
+    $('#m').val('');
+    return false;
+    e.preventDefault()
+  })
+  socket.on('chat message', function(msg) {
+    $('#messages').append($('<li>').text(msg));
+  })
+</script>

@@ -7,7 +7,7 @@ const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 global.io = io
-// const socketRouter = require('./routers/socketRouter')
+const socketRouter = require('./routers/socketRouter')
 
 // set up the database
 const mongoose = require('mongoose')
@@ -73,9 +73,8 @@ app.use('/map', require('./controllers/mapController'))
 app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
 app.use('/sms', require('./controllers/smsController'))
-app.get('/stream', (req, res) => {
-  res.render('stream')
-})
+app.use('/advice', require('./controllers/adviceController'))
+
 // send all failing routes to 404
 app.use((req, res) => {
   res.render('404')
@@ -83,10 +82,7 @@ app.use((req, res) => {
 
 // start the server listening for connections by client sockets
 io.on('connection', (socket) => {
-  socket.on('stream', function (img) {
-    socket.broadcast.emit('stream', img)
-  })
-  // socketRouter(socket)
+  socketRouter(socket)
 })
 
 http.listen(port, () => {

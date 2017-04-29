@@ -1,15 +1,9 @@
-<h2>Dashboard</h2>
-<br/>
-<h3>Hello
-  <%- currentUser.name %></h3>
-
-<h3>my email:
-  <%- currentUser.email %></h3>
-<h3>my phone:
-  <%- currentUser.phone %></h3>
-
-<form class="" action="/advice/seek/<%- currentUser.id%>" method="get">
-  <input type="submit" name="" value="Speak to a medical professional">
+<h1>advice</h1>
+<%= person.name %>
+<ul id="messages"></ul>
+<form action="">
+  <input id="m" autocomplete="off"/>
+  <button>Send</button>
 </form>
 
 <div id="chart">
@@ -45,3 +39,26 @@
   </script>
 
 </div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  var socket = io.connect()
+  var room = "<%= room %>"
+  socket.on('connect', function() {
+    socket.emit('give', room)
+    console.log('joining ' + room)
+  })
+  // var form = document.querySelector('form')
+  $('form').submit(function(e) {
+    socket.emit('chat message', {
+      message: $('#m').val(),
+      room: room
+    });
+    $('#m').val('');
+    return false;
+    e.preventDefault()
+  })
+  socket.on('chat message', function(msg) {
+    $('#messages').append($('<li>').text(msg));
+  })
+</script>

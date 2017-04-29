@@ -1,0 +1,26 @@
+<h1>advice</h1>
+<ul id="help"></ul>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var all = []
+  var socket = io.connect()
+  socket.on('advice', function(room) {
+    var newListItem = document.createElement('li')
+    newListItem.innerHTML = '<a href=/advice/give/' + room + ' target="_blank">Give advice to ' + room + '</a>'
+    document.getElementById('help').appendChild(newListItem)
+    all.push(room)
+  })
+
+  socket.on('left', function(room) {
+    console.log(all)
+    var index = all.indexOf(room)
+    var toRemove = document.querySelectorAll('li')
+    console.log(toRemove);
+    all.splice(index, 1)
+    console.log(all)
+    var listToRemove = toRemove[index]
+    console.log(listToRemove);
+    listToRemove.parentNode.removeChild(listToRemove)
+    console.log(toRemove);
+  })
+</script>
