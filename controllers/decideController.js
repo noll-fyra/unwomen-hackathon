@@ -36,17 +36,13 @@ router.get('/', (req, res) => {
       req.query.when_think_about,
       req.query.hormone_altering
     )
-    let nextQuestion = 'need_to_be_well_organised';
-    if (req.query.hormone_altering !== undefined) {
-      nextQuestion = 'complete';
-    } else if (req.query.when_think_about !== undefined) {
-      nextQuestion = 'hormone_altering'
-    } else if (req.query.need_to_be_well_organised !== undefined) {
-      nextQuestion = 'when_think_about'
-    } else if (req.query.has_steady_partner !== undefined) {
-      nextQuestion = 'need_to_be_well_organised'
-    }
-    res.render('./decide/decide', {users: data, options: filteredOptions, nextQuestion: nextQuestion})
+    const formValues = {
+      has_steady_partner: req.query.has_steady_partner,
+      need_to_be_well_organised: req.query.need_to_be_well_organised,
+      when_think_about: req.query.when_think_about,
+      hormone_altering: req.query.hormone_altering
+    };
+    res.render('./decide/decide', {users: data, options: filteredOptions, formValues: formValues})
   })
 })
 
