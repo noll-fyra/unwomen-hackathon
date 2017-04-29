@@ -119,3 +119,8 @@ button {
   margin-right: 10px;
   margin-bottom: 50px;
 }
+
+#chart {
+  width: 40%;
+  margin-left: 10%;
+}

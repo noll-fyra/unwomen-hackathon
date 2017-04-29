@@ -25,7 +25,9 @@ var UserSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: true
-  }
+  },
+  contraceptive: String,
+  startTracking: Boolean
 })
 
 UserSchema.pre('save', function (next) {
