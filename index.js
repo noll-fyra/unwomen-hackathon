@@ -66,6 +66,7 @@ app.use('/', require('./controllers/homeController'))
 app.use('/auth', require('./controllers/authController'))
 app.use('/account', require('./controllers/accountController'))
 app.use('/map', require('./controllers/mapController'))
+app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
 
 app.get('/maptest', (req, res) => {
