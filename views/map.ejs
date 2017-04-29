@@ -8,7 +8,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 80%;
       }
       /* Optional: Makes the sample page fill the window. */
       body,
@@ -39,15 +39,30 @@
         font-family: Arial, Helvetica, sans-serif;
         position: absolute;
         right: 5px;
-        top: 60%;
-        margin-top: -195px;
-        height: 330px;
-        width: 200px;
+        top: 60px;
+        /*margin-top: -195px;*/
+        height: 335px;
+        width: 400px;
         padding: 5px;
         z-index: 5;
         border: 1px solid #999;
         background: #fff;
       }
+      #directions-panel {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        right: 5px;
+        top: 400px;
+        /*margin-top: -195px;*/
+        height: 300px;
+        width: 400px;
+        padding: 5px;
+        z-index: 6;
+        border: 1px solid #999;
+        background: #fff;
+        overflow: auto;
+      }
+
       h2 {
         font-size: 22px;
         margin: 0 0 5px;
@@ -57,7 +72,7 @@
         padding: 0;
         margin: 0;
         height: 271px;
-        width: 200px;
+        width: 400px;
         overflow-y: scroll;
       }
       li {
@@ -80,31 +95,57 @@
       // This example requires the Places library. Include the libraries=places parameter when you first load the API. For example: <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
       var map;
+      var directionsService;
+      var directionsDisplay;
 
       function initMap() {
-        var toSearch = {
+        var placeToSearch = {
           lat: parseFloat("<%= mapLat %>"),
           lng: parseFloat("<%= mapLong %>")
-        };
+        }
 
         map = new google.maps.Map(document.getElementById('map'), {
-          center: toSearch,
-          zoom: 17
-        });
+          center: placeToSearch,
+          zoom: 16
+        })
 
-        var service = new google.maps.places.PlacesService(map);
+        directionsService = new google.maps.DirectionsService
+        directionsDisplay = new google.maps.DirectionsRenderer
+        directionsDisplay.setPanel(document.getElementById('directions-panel'))
+        document.getElementById('directions-panel').style.display = 'none'
+
+        var marker = new google.maps.Marker({position: placeToSearch, map: map})
+
+        var service = new google.maps.places.PlacesService(map)
+
         service.nearbySearch({
-          location: toSearch,
+          location: placeToSearch,
           radius: 5000,
           type: ['health']
-        }, processResults);
+        }, processResults)
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay, destination) {
+        document.getElementById('directions-panel').style.display = 'block'
+        directionsDisplay.setMap(map)
+        directionsService.route({
+          origin: "<%= mapLat %>,<%= mapLong %>",
+          destination: destination.lat().toString() + ',' + destination.lng().toString(),
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response)
+          } else {
+            window.alert('Directions request failed due to ' + status)
+          }
+        })
       }
 
       function processResults(results, status, pagination) {
         if (status !== google.maps.places.PlacesServiceStatus.OK) {
           return;
         } else {
-          createMarkers(results);
+          createMarkers(results, directionsService, directionsDisplay);
 
           if (pagination.hasNextPage) {
             var moreButton = document.getElementById('more');
@@ -122,23 +163,35 @@
       function createMarkers(places) {
         var bounds = new google.maps.LatLngBounds();
         var placesList = document.getElementById('places');
-
-        for (var i = 0, place; place = places[i]; i++) {
+        var infowindow = new google.maps.InfoWindow()
+        for (var i = 0; i < places.length; i++) {
+          var place = places[i]
           var image = {
             url: place.icon,
             size: new google.maps.Size(71, 71),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
-          };
+          }
+          var marker = new google.maps.Marker({map: map, icon: image, title: place.name, position: place.geometry.location})
+          var content = '<div><strong>' + place.name + '</strong></div>'
 
-          var marker = new google.maps.Marker({map: map, icon: image, title: place.name, position: place.geometry.location});
+          google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
 
-          placesList.innerHTML += '<li>' + place.name + '</li>';
+            return function() {
+              directionsDisplay.setMap(null)
+              calculateAndDisplayRoute(directionsService, directionsDisplay, this.getPosition())
+              infowindow.setContent(content);
+              infowindow.open(map, marker)
+            }
+          })(marker, content, infowindow))
 
-          bounds.extend(place.geometry.location);
+          placesList.innerHTML += '<li>' + place.name + '</li>'
+
+          bounds.extend(place.geometry.location)
         }
-        map.fitBounds(bounds);
+        map.fitBounds(bounds)
+
       }
     </script>
   </head>
@@ -148,6 +201,9 @@
       <h2>Results</h2>
       <ul id="places"></ul>
       <button id="more">More results</button>
+    </div>
+    <div id="directions-panel">
+      <h2>Directions</h2>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDliZ9ymHudLYcknRrq1oHR8cL-8mun2yE&libraries=places&callback=initMap" async defer></script>
   </body>
