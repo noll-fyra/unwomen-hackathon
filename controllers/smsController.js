@@ -5,18 +5,15 @@ var User = require('../models/user')
 
 // the home page
 router.post('/', (req, res) => {
-  console.log('the phone number is')
-  console.log(req.body.From)
-  // console.log('end')
   var twiml = new twilio.TwimlResponse()
-
 // 0 and 6 to allow only 1-5 responses
   if (!Number.isNaN(parseInt(req.body.Body)) && parseInt(req.body.Body) > 0 && parseInt(req.body.Body) < 6) {
-    User.find({phone: req.body.From}).exec((err, user) => {
+    User.find({phone: req.body.From}, (err, user) => {
       if (err) throw err
       if (!user) {
         twiml.message('Thanks for your interest in we-contraception, but your number does not appear to be listed. Visit http://we-contraception.herokuapp.com to find out more.')
       } else {
+        console.log(user)
         twiml.message('Thanks ' + user.name + ', your response of ' + req.body.Body + ' has been recorded! Stay safe!')
       }
       res.writeHead(200, {'Content-Type': 'text/xml'})
