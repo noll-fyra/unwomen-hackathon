@@ -28,7 +28,7 @@ var UserSchema = new mongoose.Schema({
   },
   contraceptiveType: String,
   contraceptiveBrand: String,
-  startTracking: String
+  track: Boolean
 })
 
 UserSchema.pre('save', function (next) {
