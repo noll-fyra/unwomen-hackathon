@@ -13,6 +13,8 @@ mongoose.Promise = global.Promise
 
 // add middleware, views
 const ejsLayouts = require('express-ejs-layouts')
+const methodOverride = require('method-override')
+const bodyParser = require('body-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./authentication/passport')
@@ -30,6 +32,10 @@ db.once('open', () => {
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+
+// handle requests
+app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({extended: false}))
 
 // handle login/logout (session comes before passport and flash)
 app.use(session({
@@ -56,9 +62,11 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use((req, res) => {
+app.get('/', (req, res) => {
   res.render('./index/index', {})
 })
+
+app.use('/auth', require('./controllers/authController'))
 
 app.get('/option/:optionID', function (req, res) {
   const optionID = req.params.optionID
