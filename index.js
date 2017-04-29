@@ -69,9 +69,6 @@ app.use('/map', require('./controllers/mapController'))
 app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
 
-app.get('/maptest', (req, res) => {
-  res.render('./maptest')
-})
 
 app.listen(port, () => {
   console.log('App is running on port: ' + port)
