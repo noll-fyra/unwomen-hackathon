@@ -25,10 +25,10 @@
       FINISHED
       <% } %>
 
-       <ul> 
-<% options.forEach((option) => { %>
-  <li><a href="/option/<%= option.id %>"><%= option.name %></a></li>
-<% }) %>
+    <ul class="c-options">
+      <% options.forEach((option) => { %>
+        <li class="c-options__option <% if (filteredOptions.indexOf(option.id) === -1) { %> c-options__option--inactive <% } %>"><a href="/option/<%= option.id %>"><%= option.name %></a></li>
+      <% }) %>
     </ul>
 
     </main>
