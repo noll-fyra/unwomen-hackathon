@@ -11,27 +11,27 @@
      <nav class="nav">
 
       <div class="nav-center nav-menu">
-        <a class="nav-item" href="/">
+        <a class="nav-item nav-item-active" href="/">
           Home
         </a>
         <a class="nav-item" href="/decide">
           Which Contraception?
         </a>
-        <a class="nav-item" href="/">
+        <!-- <a class="nav-item" href="/">
           Methods of Contraceptive
-        </a>
+        </a> -->
         <a class="nav-item" href="/map">
           Where To Buy
         </a>
-        <a class="nav-item" href="/">
+       <!--  <a class="nav-item" href="/">
           Team
-        </a>
-        <a class="nav-item" href="/auth/signup">
+        </a> -->
+        <!-- <a class="nav-item" href="/auth/signup">
           Sign Up
         </a>
         <a class="nav-item" href="/auth/login">
           Log In
-        </a>
+        </a> -->
         <% if (!currentUser) { %>
           <% include partials/login %>
         <% } else { %>
@@ -40,6 +40,7 @@
         <% } %>
       </div>
     </nav>
+    <br>
     <% include partials/alerts %>
     <%- body %>
     <footer class="footer">

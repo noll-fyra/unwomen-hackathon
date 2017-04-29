@@ -12,6 +12,33 @@
   <input type="submit" name="" value="Speak to a medical professional">
 </form>
 
+<form id='add_contraceptive' action='/account' method='post'>
+
+  <tr>
+    <td>Contraceptive Type</td>
+    <td><input type='text' name='contraceptiveType' placeholder='Contraceptive Type' class='form-control'></td>
+  </tr>
+
+  <tr>
+    <td>Contraceptive Brand</td>
+    <td><input type='text' name='contraceptiveBrand' placeholder='Contraceptive Brand' class='form-control'></td>
+  </tr>
+
+  <tr>
+    <td>Start Tracking</td>
+    <td><input type='text' name='startTracking' placeholder='Start Tracking Pill?' class='form-control'></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td>
+      <button type="submit">
+        Update Contraceptive
+      </button>
+    </td>
+  </tr>
+</form>
+
 <div id="chart">
 
   <canvas id="myChart" width="400" height="400"></canvas>

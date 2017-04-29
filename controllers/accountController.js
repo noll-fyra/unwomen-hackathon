@@ -15,6 +15,11 @@ router.route('/')
     res.render('account/account', {data: data})
   })
 
+router.route('/')
+.post((req, res) => {
+    res.send('hello')
+  })
+
 // <button onclick='<%- twilio(currentUser.phone).bind(this) %>' type="button" name="button">Send me a message</button>
 })
 
