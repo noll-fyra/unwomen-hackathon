@@ -28,7 +28,8 @@ var UserSchema = new mongoose.Schema({
   },
   contraceptiveType: String,
   contraceptiveBrand: String,
-  track: Boolean
+  track: Boolean,
+  history: String
 })
 
 UserSchema.pre('save', function (next) {
