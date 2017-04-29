@@ -67,6 +67,7 @@ app.use((req, res, next) => {
 app.use('/', require('./controllers/homeController'))
 app.use('/auth', require('./controllers/authController'))
 app.use('/account', require('./controllers/accountController'))
+app.use('/map', require('./controllers/mapController'))
 app.get('/option/:optionID', function (req, res) {
   const optionID = req.params.optionID
   const option = ContraceptionOptions.find(option => option.id === optionID);
@@ -74,6 +75,9 @@ app.get('/option/:optionID', function (req, res) {
     return res.send('404');
   }
   return res.send(option);
+})
+app.get('/maptest', (req, res) => {
+  res.render('./maptest')
 })
 
 app.listen(port, () => {
