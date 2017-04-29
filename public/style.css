@@ -129,6 +129,10 @@ button {
   margin-bottom: 50px;
 }
 
+#decideButton:hover{
+  cursor:pointer;
+  background-color:rgba(4, 81, 132, 1);
+}
 
 .hide{
   display:none;
