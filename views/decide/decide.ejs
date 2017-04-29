@@ -24,9 +24,11 @@
       <% } else { %>
       FINISHED
       <% } %>
-        
+
+       <ul> 
 <% options.forEach((option) => { %>
-    <%= option.name %>
-  <% }) %>
+  <li><a href="/option/<%= option.id %>"><%= option.name %></a></li>
+<% }) %>
+    </ul>
 
     </main>
