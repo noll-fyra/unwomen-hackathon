@@ -82,3 +82,12 @@ button {
     display: inline-block;
     font-size: 16px;
 }
+
+.c-pros-cons {
+  list-style: disc;
+  padding: 10px;
+}
+
+.c-pros-cons li {
+  margin-bottom: 10px;
+}
