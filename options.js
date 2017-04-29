@@ -123,7 +123,7 @@ const options = [
     has_steady_partner: 'true',
     need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
-    hormone_altering: 'true',
+    hormone_altering: 'false',
     description: 'description',
   }, {
     id: 'female-condom',

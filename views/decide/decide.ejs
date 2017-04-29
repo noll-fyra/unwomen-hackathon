@@ -12,7 +12,7 @@
         <form method="get" action="/decide">
           <input type='hidden' value='<%= formValues.has_steady_partner %>' name='has_steady_partner' />
           <input type='hidden' value='<%= formValues.need_to_be_well_organised %>' name='need_to_be_well_organised' />
-          <h2>When do you want to think about contraception?</h2><button id=decideButton name="when_think_about" type="submit" value="never">Never</button><button id=decideButton name="when_think_about" type="submit" value="at_the_time">At The Time</button><button id=decideButton name="when_think_about" type="submit" value="routine">Routine</button>
+          <h2>When do you want to think about contraception?</h2><button id=decideButton name="when_think_about" type="submit" value="never">Rarely</button><button id=decideButton name="when_think_about" type="submit" value="at_the_time">At The Time</button><button id=decideButton name="when_think_about" type="submit" value="routine">Routine</button>
         </form>
       <% } else if (formValues.hormone_altering === undefined) { %>
           <form method="get" action="/decide">
