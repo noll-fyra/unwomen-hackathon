@@ -74,10 +74,8 @@ app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
 
 app.post('/sms', (req, res) => {
-  console.log('req')
-  console.log(req)
-  console.log('req.body')
-  console.log(req.body)
+  console.log('the real one')
+  console.log(req.body.Body)
   console.log('end')
   var twiml = new twilio.TwimlResponse()
   twiml.message('The Robots are coming! Head for the hills! Testtest!')
