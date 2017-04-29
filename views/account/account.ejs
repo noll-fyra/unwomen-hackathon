@@ -13,56 +13,57 @@
 </form>
 
 <form id='add_contraceptive' action='/account' method='post'>
-
+  <% var type = currentUser.contraceptiveType ? currentUser.contraceptiveType : 'type' %>
+  <% var brand = currentUser.contraceptiveBrand ? currentUser.contraceptiveBrand : 'brand' %>
   <tr>
     <td>Contraceptive Type</td>
-    <td><input type='text' name='contraceptiveType' placeholder='Contraceptive Type' class='form-control'></td>
+    <td><input type='text' name='contraceptiveType' placeholder='Contraceptive Type' class='form-control' value='<%- type %>'></td>
   </tr>
 
   <tr>
     <td>Contraceptive Brand</td>
-    <td><input type='text' name='contraceptiveBrand' placeholder='Contraceptive Brand' class='form-control'></td>
+    <td><input type='text' name='contraceptiveBrand' placeholder='Contraceptive Brand' class='form-control' value="<%- brand %>"></td>
   </tr>
 
   <tr>
     <td></td>
     <td>
       <button id=decideButton name="track" type="submit" value="true">Track Contraceptive</button>
-      </button>
-    </td>
-  </tr>
+    </button>
+  </td>
+</tr>
 </form>
 
 <div id="chart">
 
-  <canvas id="myChart" width="400" height="400"></canvas>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
-  <script>
-    var levels = '<%- data.map((item) => { return item.level }).join(",") %>'.split(',')
-    levels = levels.map((item) => {
-      return parseInt(item)
-    })
-    var labels = levels.map((item, index) => {
-      return index + 1
-    })
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
+<script>
+  var levels = '<%- data.map((item) => { return item.level }).join(",") %>'.split(',')
+  levels = levels.map((item) => {
+    return parseInt(item)
+  })
+  var labels = levels.map((item, index) => {
+    return index + 1
+  })
 
-    var ctx = document.getElementById("myChart").getContext("2d")
-    var lineChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: 'Happiness over time',
-            fill: false,
-            data: levels,
-            borderColor: 'black',
-            borderWidth: 10
-          }
-        ]
-      },
-      options: {}
-    });
-  </script>
+  var ctx = document.getElementById("myChart").getContext("2d")
+  var lineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Happiness over time',
+          fill: false,
+          data: levels,
+          borderColor: 'black',
+          borderWidth: 10
+        }
+      ]
+    },
+    options: {}
+  });
+</script>
 
 </div>
