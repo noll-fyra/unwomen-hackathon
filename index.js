@@ -4,7 +4,10 @@ require('dotenv').config({silent: true})
 // set up express
 const express = require('express')
 const app = express()
-const http = require('http')
+const http = require('http').createServer(app)
+const io = require('socket.io')(http)
+global.io = io
+// const socketRouter = require('./routers/socketRouter')
 
 // set up the database
 const mongoose = require('mongoose')
@@ -20,9 +23,6 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./authentication/passport')
 const flash = require('connect-flash')
-
-// sms
-const twilio = require('twilio')
 
 // connect to the database
 if (!mongoose.connection.db) mongoose.connect(dbURI)
@@ -73,7 +73,22 @@ app.use('/map', require('./controllers/mapController'))
 app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
 app.use('/sms', require('./controllers/smsController'))
+app.get('/stream', (req, res) => {
+  res.render('stream')
+})
+// send all failing routes to 404
+app.use((req, res) => {
+  res.render('404')
+})
 
-http.createServer(app).listen(port, () => {
+// start the server listening for connections by client sockets
+io.on('connection', (socket) => {
+  socket.on('stream', function (img) {
+    socket.broadcast.emit('stream', img)
+  })
+  // socketRouter(socket)
+})
+
+http.listen(port, () => {
   console.log('App is running on port: ' + port)
 })
