@@ -39,6 +39,11 @@ h1 {
   font-family: Tahoma;
 }
 
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
 .nav {
   background-color: rgb(17, 96, 137);
 }
@@ -90,4 +95,27 @@ button {
 
 .c-pros-cons li {
   margin-bottom: 10px;
+}
+
+#findYourAddress {
+  background-color: rgb(17, 96, 137);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.decide {
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+#decideButton {
+  margin-right: 10px;
+  margin-bottom: 50px;
 }
