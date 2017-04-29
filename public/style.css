@@ -12,11 +12,13 @@
 .c-box--blue {
   background: rgba(25, 144, 206, 0.6);
   border-bottom: rgba(25, 144, 206, 1) 10px solid;
+  margin-top: 40px;
 }
 
 .c-box--aqua {
   background: rgba(2, 184, 191, 0.6);
   border-bottom: 10px solid rgba(2, 184, 191, 1);
+  margin-bottom: 40px;
 }
 
 .c-box--green {
@@ -43,4 +45,21 @@ h1 {
 
 .nav-item a, a.nav-item {
     color: white;
+}
+
+.c-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.c-options__option {
+  height: 200px;
+  width: 25%;
+  background: green;
+  margin: 20px;
+}
+
+.c-options__option--inactive {
+  background: grey;
 }

@@ -4,26 +4,26 @@ var User = require('../models/user')
 var contraceptionOptions = require('./../options')
 
 function filterOptions (has_steady_partner, need_to_be_well_organised, when_think_about, hormone_altering) {
-let filteredOptions = contraceptionOptions
+  let filteredOptions = contraceptionOptions
 
-if(has_steady_partner != undefined) {
-  filteredOptions = filteredOptions.filter((option) => {return option.has_steady_partner === has_steady_partner})
-}
+  if(has_steady_partner != undefined) {
+    filteredOptions = filteredOptions.filter((option) => {return option.has_steady_partner === has_steady_partner})
+  }
 
-if(need_to_be_well_organised != undefined) {
-  filteredOptions = filteredOptions.filter((option) => {return option.need_to_be_well_organised === need_to_be_well_organised})
-}
+  if(need_to_be_well_organised != undefined) {
+    filteredOptions = filteredOptions.filter((option) => {return option.need_to_be_well_organised === need_to_be_well_organised})
+  }
 
-if(when_think_about != undefined) {
-  filteredOptions = filteredOptions.filter((option) => {return option.when_think_about === when_think_about})
-}
+  if(when_think_about != undefined) {
+    filteredOptions = filteredOptions.filter((option) => {return option.when_think_about === when_think_about})
+  }
 
-if(hormone_altering != undefined) {
-  filteredOptions = filteredOptions.filter((option) => {return option.hormone_altering === hormone_altering})
-}
+  if(hormone_altering != undefined) {
+    filteredOptions = filteredOptions.filter((option) => {return option.hormone_altering === hormone_altering})
+  }
 
 
-return filteredOptions
+  return filteredOptions.map((option) => { return option.id });
 }
 
 // the home page
@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
       when_think_about: req.query.when_think_about,
       hormone_altering: req.query.hormone_altering
     };
-    res.render('./decide/decide', {users: data, options: filteredOptions, formValues: formValues})
+    res.render('./decide/decide', {users: data, options: contraceptionOptions, filteredOptions: filteredOptions, formValues: formValues})
   })
 })
 
