@@ -19,18 +19,14 @@ router.post('/', (req, res) => {
       } else {
         twiml.message('Thanks ' + user.name + ', your response of ' + req.body.Body + ' has been recorded! Stay safe!')
       }
+      res.writeHead(200, {'Content-Type': 'text/xml'})
+      res.end(twiml.toString())
     })
-    res.writeHead(200, {'Content-Type': 'text/xml'})
-    res.end(twiml.toString())
   } else {
     twiml.message('Your entry is invalid. From a scale of 1 - 5, with 5 being the happiest, please tell us how happy you were today:')
     res.writeHead(200, {'Content-Type': 'text/xml'})
     res.end(twiml.toString())
   }
-
-
-
-
 })
 
 module.exports = router
