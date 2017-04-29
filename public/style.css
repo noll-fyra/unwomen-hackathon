@@ -48,8 +48,12 @@ h2 {
   background-color: rgb(17, 96, 137);
 }
 
-.nav-item a, a.nav-item {
+.nav-item a, a.nav-item, .nav-item a:hover, a.nav-item:hover {
     color: white;
+}
+
+.nav-item-active, .nav-item:hover{
+  background-color:rgba(4, 81, 132, 1);
 }
 
 .c-options {
