@@ -3,18 +3,73 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
   </head>
   <body>
-    <div>
-      <a href="/">Home</a>
-      <% if (!currentUser) { %>
-        <% include partials/login %>
-      <% } else { %>
-        <% include partials/account %>
-        <% include partials/logout %>
-      <% } %>
-    </div>
+     <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item">
+          <img src="LOGO!" alt="LOGO!">
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <a class="nav-item">
+          <span class="icon">
+            <i class="fa fa-github"></i>
+          </span>
+        </a>
+        <a class="nav-item">
+          <span class="icon">
+            <i class="fa fa-twitter"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+      <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+      <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+
+      <!-- This "nav-menu" is hidden on mobile -->
+      <!-- Add the modifier "is-active" to display it on mobile -->
+      <div class="nav-right nav-menu">
+        <a class="nav-item">
+          Home
+        </a>
+        <a class="nav-item">
+          About
+        </a>
+        <% if (!currentUser) { %>
+          <% include partials/login %>
+        <% } else { %>
+          <% include partials/account %>
+          <% include partials/logout %>
+        <% } %>
+      </div>
+    </nav>
     <% include partials/alerts %>
     <%- body %>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Bulma</strong>
+            by
+            <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+          </p>
+          <p>
+            <a class="icon" href="https://github.com/jgthms/bulma">
+              <i class="fa fa-github"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

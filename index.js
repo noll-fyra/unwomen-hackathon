@@ -1,3 +1,5 @@
+const ContraceptionOptions = require('./options');
+
 // set up hidden secret
 require('dotenv').config({silent: true})
 
@@ -68,7 +70,11 @@ app.use('/account', require('./controllers/accountController'))
 app.use('/map', require('./controllers/mapController'))
 app.get('/option/:optionID', function (req, res) {
   const optionID = req.params.optionID
-  res.send(optionID)
+  const option = ContraceptionOptions.find(option => option.id === optionID);
+  if (!option) {
+    return res.send('404');
+  }
+  return res.send(option);
 })
 app.get('/maptest', (req, res) => {
   res.render('./maptest')
