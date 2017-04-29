@@ -72,20 +72,7 @@ app.use('/account', require('./controllers/accountController'))
 app.use('/map', require('./controllers/mapController'))
 app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
-
-app.post('/sms', (req, res) => {
-  // console.log('the real one = req.body.Body and req.body.From')
-  // console.log(req.body.Body)
-  // console.log('end')
-  var twiml = new twilio.TwimlResponse()
-  if (!Number.isNaN(parseInt(req.body.Body))) {
-    twiml.message('Thanks Maria, your response of ' + req.body.Body + 'has been recorded! Stay safe!')
-  } else {
-    twiml.message('It sounds like you could die in the next 24 hours. The fates have spoken Maria...')
-  }
-  res.writeHead(200, {'Content-Type': 'text/xml'})
-  res.end(twiml.toString())
-})
+app.use('/sms', require('./controllers/smsController'))
 
 http.createServer(app).listen(port, () => {
   console.log('App is running on port: ' + port)

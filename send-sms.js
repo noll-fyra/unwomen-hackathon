@@ -9,7 +9,7 @@ var client = new twilio.RestClient(accountSid, authToken)
 client.messages.create({
   to: '+6583383255',
   from: '+61428086370',
-  body: 'On a scale of 1-10, how are you feeling today?'
+  body: 'From a scale of 1 - 5, with 5 being the happiest, please tell us how happy you were today:'
 }, function (err, message) {
   if (err) console.error(err.message)
   console.log(message.sid)
