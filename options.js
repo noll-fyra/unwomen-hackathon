@@ -1,5 +1,6 @@
 const options = [
   {
+    id: 'vasectomy',
     name: 'Vasectomy',
     typical_use_failure: 0.15,
     perfect_use_failure: 0.1,
@@ -13,6 +14,7 @@ const options = [
     hormone_altering: false,
     description: 'description',
   }, {
+    id: 'tubal-ligation',
     name: 'Tubal Ligation',
     typical_use_failure: 0.5,
     perfect_use_failure: 0.5,
@@ -26,6 +28,7 @@ const options = [
     hormone_altering: false,
     description: 'description',
   }, {
+    id: 'sponge',
     name: 'Sponge',
     typical_use_failure: 32,
     perfect_use_failure: 20,
@@ -39,6 +42,7 @@ const options = [
     hormone_altering: false,
     description: 'description',
   }, {
+    id: 'minipill',
     name: 'Minipill',
     typical_use_failure: 9,
     perfect_use_failure: 0.3,
@@ -52,6 +56,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'morning-after-pill',
     name: 'Morning After Pill',
     typical_use_failure: -1,
     perfect_use_failure: -1,
@@ -65,6 +70,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'contraceptive-ring',
     name: 'Contraceptive Ring',
     typical_use_failure: 9,
     perfect_use_failure: 0.3,
@@ -78,6 +84,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'condom',
     name: 'Condom',
     typical_use_failure: 18,
     perfect_use_failure: 2,
@@ -91,6 +98,7 @@ const options = [
     hormone_altering: false,
     description: 'description',
   }, {
+    id: 'iud-progestogen',
     name: 'IUD with Progestogen',
     typical_use_failure: 0.2,
     perfect_use_failure: 0.2,
@@ -104,6 +112,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'iud-copper',
     name: 'IUD with Copper',
     typical_use_failure: 0.8,
     perfect_use_failure: 0.6,
@@ -117,6 +126,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'female-condom',
     name: 'Female Condom',
     typical_use_failure: 21,
     perfect_use_failure: 5,
@@ -130,6 +140,7 @@ const options = [
     hormone_altering: false,
     description: 'description',
   }, {
+    id: 'contraceptive-injection',
     name: 'Contraceptive Injection',
     typical_use_failure: 3,
     perfect_use_failure: 0.3,
@@ -143,6 +154,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'contraceptive-patch',
     name: 'Contraceptive Patch',
     typical_use_failure: 8,
     perfect_use_failure: 0.3,
@@ -156,6 +168,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'contraceptive-implant',
     name: 'Contraceptive Implant',
     typical_use_failure: 0.05,
     perfect_use_failure: 0.05,
@@ -169,6 +182,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'contraceptive-pill',
     name: 'Contraceptive Pill',
     typical_use_failure: 9,
     perfect_use_failure: 0.3,
@@ -182,6 +196,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'contraceptive-pill',
     name: 'Contraceptive Pill',
     typical_use_failure: 9,
     perfect_use_failure: 0.3,
@@ -195,6 +210,7 @@ const options = [
     hormone_altering: true,
     description: 'description',
   }, {
+    id: 'withdrawal-method',
     name: 'Withdrawal Method',
     typical_use_failure: 18,
     perfect_use_failure: 4,
