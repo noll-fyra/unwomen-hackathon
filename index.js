@@ -62,17 +62,9 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.get('/', (req, res) => {
-  require('./models/user').find({}).exec((err, data) => {
-    if (err) throw err
-    res.render('./index/index', {users: data})
-  })
-})
-
+app.use('/', require('./controllers/homeController'))
 app.use('/auth', require('./controllers/authController'))
-
 app.use('/account', require('./controllers/accountController'))
-
 app.get('/option/:optionID', function (req, res) {
   const optionID = req.params.optionID
   res.send(optionID)
