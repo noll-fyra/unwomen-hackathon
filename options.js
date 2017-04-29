@@ -80,7 +80,7 @@ const options = [
     gender: 'f',
     has_steady_partner: true,
     need_to_be_well_organised: true,
-    when_think_about: 'routine', // at_the_time, routine, never
+    when_think_about: 'at_the_time', // at_the_time, routine, never
     hormone_altering: true,
     description: 'description',
   }, {
