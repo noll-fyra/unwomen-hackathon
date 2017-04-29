@@ -6,7 +6,8 @@ var ConditionSchema = new mongoose.Schema({
     ref: 'User'
   },
   level: Number,
-  description: String
+  description: String,
+  date: Date
 })
 
 module.exports = mongoose.model('Condition', ConditionSchema)

@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var twilio = require('twilio')
 var User = require('../models/user')
+var Condition = require('../models/condition')
 
 // the home page
 router.post('/', (req, res) => {
@@ -13,7 +14,11 @@ router.post('/', (req, res) => {
       if (!user) {
         twiml.message('Thanks for your interest in we-contraception, but your number does not appear to be listed. Visit http://we-contraception.herokuapp.com to find out more.')
       } else {
-        console.log(user)
+        Condition.create({
+          user: user.id,
+          level: parseInt(req.body.Body),
+          date: new Date()
+        })
         twiml.message('Thanks ' + user.name + ', your response of ' + req.body.Body + ' has been recorded! Stay safe!')
       }
       res.writeHead(200, {'Content-Type': 'text/xml'})

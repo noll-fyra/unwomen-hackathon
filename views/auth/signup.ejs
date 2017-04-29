@@ -9,19 +9,35 @@
   <main>
     <section>
       <table>
-        <form action="/auth/signup" method="POST">
+        <form id="signUpForm" action="/auth/signup" method="POST">
           <tbody>
+            <tr>
+              <td>
+                <label for="country">COUNTRY CODE*</label>
+              </td>
+              <td>
+                <input id="country" type="text" name="country" placeholder="65">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="number">PHONE*</label>
+              </td>
+              <td>
+                <input id="number" type="text" name="number" placeholder="88230927">
+              </td>
+            </tr>
             <tr>
               <td>
                 <label for="email">EMAIL</label>
               </td>
               <td>
-                <input type="email" name="email" placeholder="email@locavorus.com">
+                <input type="email" name="email" placeholder="email@email.com">
               </td>
             </tr>
             <tr>
               <td>
-                <label for="name">NAME</label>
+                <label for="name">NAME*</label>
               </td>
               <td>
                 <input type="text" name="name" placeholder="Rex">
@@ -36,9 +52,11 @@
               </td>
             </tr>
             <tr>
-              <td></td>
               <td>
-                <input class="button" type="submit" value="Sign Up">
+                <input id="phone" type="hidden" name="phone" value="">
+              </td>
+              <td>
+                <input id="submitForm" class="button" type="button" value="Sign Up">
               </td>
             </tr>
           </tbody>
@@ -46,4 +64,16 @@
       </table>
     </section>
   </main>
-  <div class="content">
+</div>
+
+<script>
+  var signUpForm = document.getElementById('signUpForm')
+  var country = document.getElementById('country')
+  var number = document.getElementById('number')
+  var phone = document.getElementById('phone')
+  var submitForm = document.getElementById('submitForm')
+  submitForm.addEventListener('click', () => {
+    phone.value = '+' + country.value + number.value
+    signUpForm.submit()
+  })
+</script>

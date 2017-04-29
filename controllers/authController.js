@@ -10,11 +10,11 @@ router.route('/signup')
   res.render('auth/signup')
 })
 .post((req, res) => {
-  console.log(req.body);
   User.create({
     name: req.body.name,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    phone: '+' + req.body.country + req.body.number
   }, (err, createdUser) => {
     if (err) {
       req.flash('error', 'Could not create user account. Please try again.')
