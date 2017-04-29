@@ -10,6 +10,8 @@ router.use(isLoggedIn)
 router.route('/')
 .get((req, res) => {
   res.render('account/account', {twilio: sendSms})
+//<button onclick='<%- twilio(currentUser.phone).bind(this) %>' type="button" name="button">Send me a message</button>
+
 })
 
 module.exports = router
