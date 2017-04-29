@@ -7,9 +7,9 @@ var twilio = require('twilio')
 var client = new twilio.RestClient(accountSid, authToken)
 
 client.messages.create({
-  to: '+6587427184',
+  to: '+6583383255',
   from: '+61428086370',
-  body: 'This is the ship that made the Kessel Run in fourteen parsecs?'
+  body: 'On a scale of 1-10, how are you feeling today?'
 }, function (err, message) {
   if (err) console.error(err.message)
   console.log(message.sid)
