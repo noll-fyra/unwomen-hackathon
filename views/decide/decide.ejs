@@ -27,7 +27,14 @@
 
     <ul class="c-options">
       <% options.forEach((option) => { %>
-        <li class="c-options__option <% if (filteredOptions.indexOf(option.id) === -1) { %> c-options__option--inactive <% } %>"><a href="/option/<%= option.id %>"><%= option.name %></a></li>
+        <li class="c-options__option <% if (filteredOptions.indexOf(option.id) === -1) { %> c-options__option--inactive <% } %>">
+          <a href="/option/<%= option.id %>">
+                <img src="/decide_images/<%= option.id %>.jpg">
+                <p>
+                    <%= option.name %>
+                </p>
+          </a>
+        </li>
       <% }) %>
     </ul>
 
