@@ -22,7 +22,7 @@ router.route('/signup')
     } else {
       passport.authenticate('local', {
         successRedirect: '/',
-        successFlash: 'Account created and logged in. You are now a Locavore!'
+        successFlash: 'Account created and logged in. Welcome to contraception land!'
       })(req, res)
     }
   })

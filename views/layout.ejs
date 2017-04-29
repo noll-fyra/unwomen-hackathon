@@ -5,9 +5,16 @@
     <title></title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/auth/signup">Sign Up</a>
-    <a href="/auth/login">Log In</a>
+    <div>
+      <a href="/">Home</a>
+      <% if (!currentUser) { %>
+        <% include partials/login %>
+      <% } else { %>
+        <% include partials/account %>
+        <% include partials/logout %>
+      <% } %>
+    </div>
+    <% include partials/alerts %>
     <%- body %>
   </body>
 </html>
