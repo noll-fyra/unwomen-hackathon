@@ -65,9 +65,13 @@ app.use((req, res, next) => {
 app.use('/', require('./controllers/homeController'))
 app.use('/auth', require('./controllers/authController'))
 app.use('/account', require('./controllers/accountController'))
+app.use('/map', require('./controllers/mapController'))
 app.get('/option/:optionID', function (req, res) {
   const optionID = req.params.optionID
   res.send(optionID)
+})
+app.get('/maptest', (req, res) => {
+  res.render('./maptest')
 })
 
 app.listen(port, () => {
