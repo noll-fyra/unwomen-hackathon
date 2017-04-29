@@ -3,53 +3,9 @@
 <h3>Hello
   <%- currentUser.name %></h3>
 
-This is the contraceptive that you are currently using:
-Contraceptive: IUD with progesterone <br />
-Contraceptive Brand: Mirena <br />
-Date Started: 01/01/2017 <br />
-Date Ended: <br />
+  <h3>my email:
+    <%- currentUser.email %></h3>
+  <h3>my phone:
+    <%- currentUser.phone %></h3>
 
-Update the contraceptive that you are currently using
-  <table>
-    <form id='dashboard' action ='/account' method='post'>
-
-      <tr>
-          <td>Contraceptive</td>
-          <td><select name='contraceptive' class='form-control'>
-            <option value='vasectomy'>Vasectomy</option>
-            <option value='tubal-ligation'>Tubal Ligation</option>
-            <option value='sponge'>Sponge</option>
-            <option value='minipill'>Mini Pill</option>
-            <option value='morning-after-pill'>Morning After Pill</option>
-        </select>
-          </td>
-      </tr>
-
-      <tr>
-          <td>Contraceptive Brand</td>
-        <td><input type='text' name='contraceptiveBrand' placeholder='Contraceptive Brand' class='form-control'></td>
-      </tr>
-
-      <tr>
-          <td>Date Started</td>
-        <td><input type='text' name='dateStarted' placeholder='Date Started' class='form-control'></td>
-          </td>
-      </tr>
-
-      <tr>
-          <td>Date Ended</td>
-        <td><input type='text' name='dateEnded' placeholder='Date Ended' class='form-control'></td>
-          </td>
-      </tr>
-
-      <tr>
-             <td></td>
-             <td>
-               <button type="submit"> Submit
-              </button>
-             </td>
-         </tr>
-
-
-    </form>
-      </table>
+  <button onclick='<%- twilio(currentUser.phone) %>' type="button" name="button">Send me a message</button>

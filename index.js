@@ -4,6 +4,7 @@ require('dotenv').config({silent: true})
 // set up express
 const express = require('express')
 const app = express()
+const http = require('http')
 
 // set up the database
 const mongoose = require('mongoose')
@@ -19,6 +20,9 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./authentication/passport')
 const flash = require('connect-flash')
+
+// sms
+const twilio = require('twilio')
 
 // connect to the database
 if (!mongoose.connection.db) mongoose.connect(dbURI)
@@ -68,8 +72,8 @@ app.use('/account', require('./controllers/accountController'))
 app.use('/map', require('./controllers/mapController'))
 app.use('/decide', require('./controllers/decideController'))
 app.use('/option', require('./controllers/optionController'))
+app.use('/sms', require('./controllers/smsController'))
 
-
-app.listen(port, () => {
+http.createServer(app).listen(port, () => {
   console.log('App is running on port: ' + port)
 })
