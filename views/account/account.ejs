@@ -6,4 +6,4 @@
 <h3>my phone:
   <%- currentUser.phone %></h3>
 
-<button onclick='<%- twilio(currentUser.phone) %>' type="button" name="button">Send me a message</button>
+<button onclick='<%- twilio(currentUser.phone).bind(this) %>' type="button" name="button">Send me a message</button>
