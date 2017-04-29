@@ -15,11 +15,12 @@ router.post('/', (req, res) => {
     User.find({phone: req.body.From}).exec((err, user) => {
       if (err) {
         twiml.message('Thanks for your interest in we-contraception, but your number does not appear to be listed. Visit http://we-contraception.herokuapp.com to find out more.')
+      } else {
+        twiml.message('Thanks ' + user.name + ', your response of ' + req.body.Body + ' has been recorded! Stay safe!')
       }
-      twiml.message('Thanks ' + user.name + ', your response of ' + req.body.Body + ' has been recorded! Stay safe!')
     })
   } else {
-    twiml.message('You entered an invalid number. From a scale of 1 - 5, with 5 being the happiest, please tell us how happy you were today:')
+    twiml.message('Your entry is invalid. From a scale of 1 - 5, with 5 being the happiest, please tell us how happy you were today:')
   }
   res.writeHead(200, {'Content-Type': 'text/xml'})
   res.end(twiml.toString())
