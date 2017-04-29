@@ -61,12 +61,15 @@ h2 {
 .c-options__option {
   height: 200px;
   width: 25%;
-  background: green;
   margin: 20px;
 }
 
+.c-options__option a p{
+  display:block;
+}
+
 .c-options__option--inactive {
-  background: grey;
+  opacity:.1;
 }
 
 .mapForm {
@@ -118,4 +121,8 @@ button {
 #decideButton {
   margin-right: 10px;
   margin-bottom: 50px;
+}
+
+.hide{
+  display:none;
 }

@@ -196,20 +196,6 @@ const options = [
     hormone_altering: 'true',
     description: 'description',
   }, {
-    id: 'contraceptive-pill',
-    name: 'Contraceptive Pill',
-    typical_use_failure: 9,
-    perfect_use_failure: 0.3,
-    type: 'Estrogen & progestogen',
-    implementation: 'Oral Medication',
-    user_action_required: 'Daily',
-    gender: 'f',
-    has_steady_partner: 'true',
-    need_to_be_well_organised: 'true',
-    when_think_about: 'routine', // at_the_time, routine, never
-    hormone_altering: 'true',
-    description: 'description',
-  }, {
     id: 'withdrawal-method',
     name: 'Withdrawal Method',
     typical_use_failure: 18,
