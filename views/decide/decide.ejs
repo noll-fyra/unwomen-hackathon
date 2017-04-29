@@ -1,0 +1,34 @@
+    <main class="container">
+      <% if (formValues.has_steady_partner === undefined) { %>
+        <form method="get" action="/decide">
+          Do you have a steady partner? <button name="has_steady_partner" type="submit" value="true">Yes</button><button name="has_steady_partner" type="submit" value="false">No</button>
+        </form>
+      <% } else if (formValues.need_to_be_well_organised === undefined) { %>
+        <form method="get" action="/decide">
+          <input type='hidden' value='<%= formValues.has_steady_partner %>' name='has_steady_partner' />
+          Are you well organised? <button name="need_to_be_well_organised" type="submit" value="true">Yes</button><button name="need_to_be_well_organised" type="submit" value="false">No</button>
+        </form>
+      <% } else if (formValues.when_think_about === undefined) { %>
+        <form method="get" action="/decide">
+          <input type='hidden' value='<%= formValues.has_steady_partner %>' name='has_steady_partner' />
+          <input type='hidden' value='<%= formValues.need_to_be_well_organised %>' name='need_to_be_well_organised' />
+          When do you want to think about contraception? <button name="when_think_about" type="submit" value="never">Never</button><button name="when_think_about" type="submit" value="at_the_time">At The Time</button><button name="when_think_about" type="submit" value="routine">Routine</button>
+        </form>
+      <% } else if (formValues.hormone_altering === undefined) { %>
+          <form method="get" action="/decide">
+            <input type='hidden' value='<%= formValues.has_steady_partner %>' name='has_steady_partner' />
+            <input type='hidden' value='<%= formValues.need_to_be_well_organised %>' name='need_to_be_well_organised' />
+            <input type='hidden' value='<%= formValues.when_think_about %>' name='when_think_about' />
+            Do you want a method which alters hormones? <button name="hormone_altering" type="submit" value="true">Yes</button><button name="hormone_altering" type="submit" value="false">No</button>
+        </form>
+      <% } else { %>
+      FINISHED
+      <% } %>
+
+       <ul> 
+<% options.forEach((option) => { %>
+  <li><a href="/option/<%= option.id %>"><%= option.name %></a></li>
+<% }) %>
+    </ul>
+
+    </main>

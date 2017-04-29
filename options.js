@@ -8,10 +8,10 @@ const options = [
     implementation: 'Surgical Procedure',
     user_action_required: 'Once',
     gender: 'm',
-    has_steady_partner: true,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
-    hormone_altering: false,
+    hormone_altering: 'false',
     description: 'description',
   }, {
     id: 'tubal-ligation',
@@ -22,10 +22,10 @@ const options = [
     implementation: 'Surgical Procedure',
     user_action_required: 'Once',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
-    hormone_altering: false,
+    hormone_altering: 'false',
     description: 'description',
   }, {
     id: 'sponge',
@@ -36,10 +36,10 @@ const options = [
     implementation: 'Vaginal Insertion',
     user_action_required: 'Every act of intercourse',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'false',
     when_think_about: 'at_the_time', // at_the_time, routine, never
-    hormone_altering: false,
+    hormone_altering: 'false',
     description: 'description',
   }, {
     id: 'minipill',
@@ -50,10 +50,10 @@ const options = [
     implementation: 'Oral medication',
     user_action_required: 'Daily',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: true,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'morning-after-pill',
@@ -64,10 +64,10 @@ const options = [
     implementation: 'Oral medication',
     user_action_required: 'Every act of intercourse',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'false',
     when_think_about: 'at_the_time', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'contraceptive-ring',
@@ -78,10 +78,10 @@ const options = [
     implementation: 'Vaginal insertion',
     user_action_required: 'In place 3 weeks / 1 week break',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: true,
-    when_think_about: 'routine', // at_the_time, routine, never
-    hormone_altering: true,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'true',
+    when_think_about: 'at_the_time', // at_the_time, routine, never
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'condom',
@@ -92,8 +92,8 @@ const options = [
     implementation: 'Placed on erect penis',
     user_action_required: 'Every act of intercourse',
     gender: 'm',
-    has_steady_partner: false,
-    need_to_be_well_organised: true,
+    has_steady_partner: 'false',
+    need_to_be_well_organised: 'true',
     when_think_about: 'at_the_time', // at_the_time, routine, never
     hormone_altering: false,
     description: 'description',
@@ -106,10 +106,10 @@ const options = [
     implementation: 'Intrauterine',
     user_action_required: '3-7 years',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'iud-copper',
@@ -120,10 +120,10 @@ const options = [
     implementation: 'Intrauterine',
     user_action_required: '3 to 12+ years',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'female-condom',
@@ -134,10 +134,10 @@ const options = [
     implementation: 'Vaginal insertion',
     user_action_required: 'Every act of intercourse',
     gender: 'f',
-    has_steady_partner: false,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'false',
+    need_to_be_well_organised: 'false',
     when_think_about: 'at_the_time', // at_the_time, routine, never
-    hormone_altering: false,
+    hormone_altering: 'false',
     description: 'description',
   }, {
     id: 'contraceptive-injection',
@@ -148,10 +148,10 @@ const options = [
     implementation: 'Injection',
     user_action_required: '12 weeks',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: true,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'contraceptive-patch',
@@ -162,10 +162,10 @@ const options = [
     implementation: 'Transdermal patch',
     user_action_required: 'Weekly',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: true,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'contraceptive-implant',
@@ -176,10 +176,10 @@ const options = [
     implementation: 'Subdermal implant',
     user_action_required: '3-5 years',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'contraceptive-pill',
@@ -190,10 +190,10 @@ const options = [
     implementation: 'Oral Medication',
     user_action_required: 'Daily',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: true,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'contraceptive-pill',
@@ -204,10 +204,10 @@ const options = [
     implementation: 'Oral Medication',
     user_action_required: 'Daily',
     gender: 'f',
-    has_steady_partner: true,
-    need_to_be_well_organised: true,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
-    hormone_altering: true,
+    hormone_altering: 'true',
     description: 'description',
   }, {
     id: 'withdrawal-method',
@@ -218,10 +218,10 @@ const options = [
     implementation: 'Withdrawal',
     user_action_required: 'Every act of intercourse',
     gender: 'm',
-    has_steady_partner: true,
-    need_to_be_well_organised: false,
+    has_steady_partner: 'true',
+    need_to_be_well_organised: 'false',
     when_think_about: 'at_the_time', // at_the_time, routine, never
-    hormone_altering: false,
+    hormone_altering: 'false',
     description: 'description',
   }
 ]
