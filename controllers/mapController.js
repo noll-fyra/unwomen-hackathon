@@ -4,7 +4,7 @@ var geocoder = require('geocoder')
 
 // the home page
 router.get('/', (req, res) => {
-  res.render('./map/mapForm', current: 'map')
+  res.render('./map/mapForm', {current: 'map'})
 })
 
 router.post('/', (req, res) => {
