@@ -17,35 +17,37 @@ If you are having side effects from using a contraceptive method or would like m
 <br />
 <br />
 <form class="" action="/advice/seek/<%- currentUser.id%>" method="get">
-  <input id='medicalInput' type="submit" name="" value="Consult a Medical Professional">
+  <input class="button is-danger" id='medicalInput' type="submit" name="" value="Consult a Medical Professional">
 </form>
 
 </div>
 <hr />
 <div id='track'>
-
 <h3>Track</h3>
-Mood tracking can be an important part of assessing if a contraceptive method is suitable for you, especially for hormonal contraceptives. First, enter the contraceptive type and brand that you are currently using. Click on 'Track Contraceptive' and we will send you a daily sms asking for feedback on your mood that day. Your reply (on a scale of 1 to 5) will be recorded in the chart below, which you can share with your medical professional.
+<p style="margin-bottom: 20px;">Mood tracking can be an important part of assessing if a contraceptive method is suitable for you, especially for hormonal contraceptives. First, enter the contraceptive type and brand that you are currently using. Click on 'Track Contraceptive' and we will send you a daily sms asking for feedback on your mood that day. Your reply (on a scale of 1 to 5) will be recorded in the chart below, which you can share with your medical professional.</p>
 <form id='add_contraceptive' action='/account' method='post'>
   <% var type = currentUser.contraceptiveType ? currentUser.contraceptiveType : 'type' %>
   <% var brand = currentUser.contraceptiveBrand ? currentUser.contraceptiveBrand : 'brand' %>
-  <tr>
-    <td>Contraceptive Type: </td>
-    <td><input type='text' name='contraceptiveType' placeholder='Contraceptive Type' class='form-control' value='<%- type %>'></td>
-  </tr>
+  <div class="field">
+    <label class="label" for='contraceptiveType'>Contraception Type</label>
+    <p class="control">
+      <input class="input" value='<%- type %>' name="contraceptiveType" id="contraceptiveType" type="text" placeholder="Contraception Type">
+    </p>
+  </div>
 
-  <tr>
-    <td>Contraceptive Brand: </td>
-    <td><input type='text' name='contraceptiveBrand' placeholder='Contraceptive Brand' class='form-control' value="<%- brand %>"></td>
-  </tr>
-
-  <tr>
-    <td></td>
-    <td>
-      <button id=decideButton name="track" type="submit" value="true">Track Contraceptive</button>
-    </button>
-  </td>
-</tr>
+  <div class="field">
+    <label class="label" for='contraceptiveBrand'>Contraception Brand</label>
+    <p class="control">
+      <input class="input" value='<%- brand %>' name="contraceptiveBrand" id="contraceptiveBrand" type="text" placeholder="Contraception Brand">
+    </p>
+  </div>
+  <div class="field">
+    <p class="control">
+      <button id="decideButton" type="submit" name="track" value="true" class="button is-primary">
+        Track Contraceptive
+      </button>
+    </p>
+  </div>
 </form>
 
 <div id="chart">

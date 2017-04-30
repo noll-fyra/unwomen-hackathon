@@ -4,7 +4,7 @@ body {
 
 .main-page-bg {
   background-color: grey;
-  background-image: url('images/bg.jpg');
+  background-image: url('/images/bg.jpg');
 }
 
 .c-box {
@@ -28,11 +28,12 @@ body {
 .c-box--green {
   background: rgba(7, 188, 131, 0.6);
   border-bottom: rgba(7, 188, 131, 1) 10px solid;
+  margin-bottom: 40px;
 }
 
 .c-box__title {
   color: white;
-  font-size: 30px;
+  font-size: 24px;
   padding-bottom: 40px;
 }
 
@@ -147,6 +148,7 @@ button {
 .c-pros-cons {
   list-style: disc;
   padding: 10px;
+  font-size: 14px;
 }
 
 .c-pros-cons li {
@@ -163,11 +165,6 @@ button {
 #decideButton {
   margin-right: 10px;
   margin-bottom: 50px;
-}
-
-#decideButton:hover {
-  cursor: pointer;
-  background-color: #788585;
 }
 
 .hide {
@@ -225,8 +222,6 @@ input {
 
 #medicalInput {
   font-size: 18px;
-  color: white;
-  background-color: rgb(178, 34, 34);
   margin-left: 10px;
   padding: 10px 10px;
 }
