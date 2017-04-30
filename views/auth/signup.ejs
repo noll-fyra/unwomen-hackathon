@@ -1,69 +1,52 @@
-<div class="content">
-  <nav>
-    <span class="nav-header">Sign Up</span>
-  </nav>
-  <aside>
-    <ul></ul>
-  </aside>
-
-  <main>
-    <section>
-      <table>
-        <form id="signUpForm" action="/auth/signup" method="POST">
-          <tbody>
-            <tr>
-              <td>
-                <label for="country">COUNTRY CODE*</label>
-              </td>
-              <td>
-                <input id="country" type="text" name="country" placeholder="65">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for="number">PHONE*</label>
-              </td>
-              <td>
-                <input id="number" type="text" name="number" placeholder="88230927">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for="email">EMAIL</label>
-              </td>
-              <td>
-                <input type="email" name="email" placeholder="email@email.com">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for="name">NAME*</label>
-              </td>
-              <td>
-                <input type="text" name="name" placeholder="Rex">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for="password">PASSWORD</label>
-              </td>
-              <td>
-                <input type="password" name="password" placeholder="minimum 8 characters">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input id="phone" type="hidden" name="phone" value="">
-              </td>
-              <td>
-                <input id="submitForm" class="button" type="button" value="Sign Up">
-              </td>
-            </tr>
-          </tbody>
-        </form>
-      </table>
-    </section>
-  </main>
+<div class="container c-map-form">
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column">
+      <h2>Sign Up</h2>
+      <aside>
+        <input type="hidden" value="5">
+      </aside>
+      <form id="signUpForm" action="/auth/signup" method="POST">
+        <div class="field">
+          <label class="label" for='country'>Country Code</label>
+          <p class="control">
+            <input class="input" name="country" id="country" type="text" placeholder="Country Code">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for='email'>Email</label>
+          <p class="control">
+            <input class="input" name="email" id="email" type="email" placeholder="Email">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for='name'>First Name</label>
+          <p class="control">
+            <input class="input" name="name" id="name" type="text" placeholder="First Name">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for='number'>Phone Number</label>
+          <p class="control">
+            <input class="input" name="number" id="number" type="text" placeholder="Phone Number">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for='password'>Password</label>
+          <p class="control">
+            <input class="input" name="password" id="password" type="password" placeholder="Password">
+          </p>
+        </div>
+        <input id="phone" type="hidden" name="phone" value="">
+        <div class="field">
+          <p class="control">
+            <input id="submitForm" class="button is-primary" type="button" value="Sign Up">
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="column"></div>
+  </div>
 </div>
 
 <script>
