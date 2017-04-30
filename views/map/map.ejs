@@ -86,7 +86,7 @@
       }
       #more {
         width: 100%;
-        margin: 27px 0 0 0;
+        margin: 27px 0 0;
       }
 
     </style>
@@ -185,10 +185,16 @@
             }
           })(marker, content, infowindow))
 
-          placesList.innerHTML += '<li>' + place.name + '</li>'
+          placesList.innerHTML += '<a href="#" class="map-link"><li><input type="hidden" value="' + marker.getPosition().lat() + ',' + marker.getPosition().lng() + '">' + place.name + '</li></a>'
 
           bounds.extend(place.geometry.location)
         }
+        document.getElementById('places').addEventListener('click', function(event) {
+          var clickedElement = event.target
+          if (clickedElement.className === 'map-link') {
+            console.log(clickedElement.parentNode, clickedElement.parentNode.childNodes);
+          }
+        })
         map.fitBounds(bounds)
 
       }
