@@ -51,7 +51,14 @@ h3 {
   color: #74D3AE; /*lemon green*/
   font-size: 50px;
   font-weight: bold;
-  font-family: 'Lobster', cursive;
+  font-family: 'Bree Serif', serif;
+}
+
+h4 {
+  color: #788585; /*grey*/
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Tahoma;
 }
 
 .nav {
@@ -181,3 +188,30 @@ margin-bottom: 30px;
   width: 40%;
   margin-left: 10%;
 }
+
+#intro {
+  margin: auto;
+  text-align: center;
+  width: 70%;
+  border: solid #74D3AE 3px;
+  border-style: dashed;
+  margin-bottom: 30px;
+}
+
+#call {
+  margin: auto;
+  width: 50%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/*#apnd div {
+        text-align: center;
+        height: 220px;
+        width: 30%;
+        margin-left: 10px;
+        margin-right: 10px;
+        float: left;
+        background: #74D3AE;
+        margin-bottom: 100px;
+}*/
