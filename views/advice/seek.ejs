@@ -1,5 +1,7 @@
-<h1>advice</h1>
-<%= person.name %>
+<div id='advice'>
+
+<h1>Advice</h1>
+Hello <%= person.name %>, type into the web chat below and click on 'Send' for medical advice. All your data in the chat is confidential and will not be passed on.
 <ul id="messages"></ul>
 <form action="">
   <input id="m" autocomplete="off"/>
@@ -29,3 +31,4 @@
     $('#messages').append($('<li>').text(msg));
   })
 </script>
+</div>
