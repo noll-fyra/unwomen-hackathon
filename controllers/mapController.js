@@ -4,7 +4,7 @@ var geocoder = require('geocoder')
 
 // the home page
 router.get('/', (req, res) => {
-  res.render('./map/mapForm')
+  res.render('./map/mapForm', current: 'map')
 })
 
 router.post('/', (req, res) => {
@@ -12,10 +12,10 @@ router.post('/', (req, res) => {
   if (req.body.address) {
     geocoder.geocode(req.body.address, (err, data) => {
       if (err) throw err
-      res.render('./map/map', {mapLat: data.results[0].geometry.location.lat, mapLong: data.results[0].geometry.location.lng})
+      res.render('./map/map', {mapLat: data.results[0].geometry.location.lat, mapLong: data.results[0].geometry.location.lng, current: 'map'})
     })
   } else if (req.body.yourLat && req.body.yourLong) {
-    res.render('./map/map', {mapLat: req.body.yourLat, mapLong: req.body.yourLong})
+    res.render('./map/map', {mapLat: req.body.yourLat, mapLong: req.body.yourLong, current: 'map'})
   } else {
     res.send('There was an error finding your location. Please go back and try again.')
   }

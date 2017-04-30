@@ -10,29 +10,17 @@
   <body>
     <h3>Love Confidently</h3>
      <nav class="nav">
-
       <div class="nav-center nav-menu">
-        <a class="nav-item nav-item-active" href="/">
+        <% var current = current ? current : ''; %>
+        <a class="nav-item <% if (current === 'home') { %>nav-item-active<% } %>" href="/">
           Home
         </a>
-        <a class="nav-item" href="/decide">
+        <a class="nav-item <% if (current === 'decide') { %>nav-item-active<% } %>" href="/decide">
           Which Contraception?
         </a>
-        <!-- <a class="nav-item" href="/">
-          Methods of Contraceptive
-        </a> -->
-        <a class="nav-item" href="/map">
+        <a class="nav-item <% if (current === 'map') { %>nav-item-active<% } %>" href="/map">
           Where To Buy
         </a>
-       <!--  <a class="nav-item" href="/">
-          Team
-        </a> -->
-        <!-- <a class="nav-item" href="/auth/signup">
-          Sign Up
-        </a>
-        <a class="nav-item" href="/auth/login">
-          Log In
-        </a> -->
         <% if (!currentUser) { %>
           <% include partials/login %>
         <% } else { %>
