@@ -191,9 +191,11 @@
         }
         document.getElementById('places').addEventListener('click', function(event) {
           var clickedElement = event.target
-          if (clickedElement.className === 'map-link') {
-            console.log(clickedElement.parentNode, clickedElement.parentNode.childNodes);
-          }
+          // if (clickedElement.className === 'map-link') {
+          var clickedValue = clickedElement.childNodes[0].value.split(',')
+          var clickedLatLng = new google.maps.LatLng(parseFloat(clickedValue[0]), parseFloat(clickedValue[1]))
+          calculateAndDisplayRoute(directionsService, directionsDisplay, clickedLatLng)
+          // map.panTo(clickedLatLng) map.setZoom(15) }
         })
         map.fitBounds(bounds)
 

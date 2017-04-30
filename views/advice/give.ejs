@@ -4,10 +4,17 @@
   You are speaking to
   <%= person.name %>.
   <ul id="messages"></ul>
-  <form action="">
+  <form class="messageForm" action="">
     <input id="m" autocomplete="off"/>
     <button>Send</button>
   </form>
+
+  <div>
+    <form class="history" action="/advice/give/<%- room %>" method="post">
+      <input type="textarea" rows="12" cols="50" name="history" value='<%- person.history %>'>
+      <button type="submit" name="">Save history</button>
+    </form>
+  </div>
 
   <div id="chart">
 
@@ -51,8 +58,7 @@
       socket.emit('give', room)
       console.log('joining ' + room)
     })
-    // var form = document.querySelector('form')
-    $('form').submit(function(e) {
+    $('.messageForm').submit(function(e) {
       socket.emit('chat message', {
         message: $('#m').val(),
         room: room
