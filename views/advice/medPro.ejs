@@ -1,5 +1,6 @@
-<h1>advice</h1>
+<h1>Provide Advice</h1>
 <ul id="help"></ul>
+<button onclick="twilio">Message Adam</button>
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var all = []
@@ -10,17 +11,11 @@
     document.getElementById('help').appendChild(newListItem)
     all.push(room)
   })
-
   socket.on('left', function(room) {
-    console.log(all)
     var index = all.indexOf(room)
     var toRemove = document.querySelectorAll('li')
-    console.log(toRemove);
     all.splice(index, 1)
-    console.log(all)
     var listToRemove = toRemove[index]
-    console.log(listToRemove);
     listToRemove.parentNode.removeChild(listToRemove)
-    console.log(toRemove);
   })
 </script>

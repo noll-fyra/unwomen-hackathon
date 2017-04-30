@@ -40,7 +40,7 @@
   },
   "standard": {
     "globals": [
-      "io"
+      "io", "$"
     ]
   }
 }
