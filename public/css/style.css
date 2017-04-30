@@ -167,11 +167,6 @@ button {
   margin-bottom: 50px;
 }
 
-#decideButton:hover {
-  cursor: pointer;
-  background-color: #788585;
-}
-
 .hide {
   display: none;
 }
@@ -227,8 +222,6 @@ input {
 
 #medicalInput {
   font-size: 18px;
-  color: white;
-  background-color: rgb(178, 34, 34);
   margin-left: 10px;
   padding: 10px 10px;
 }
