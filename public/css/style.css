@@ -148,6 +148,7 @@ button {
 .c-pros-cons {
   list-style: disc;
   padding: 10px;
+  font-size: 14px;
 }
 
 .c-pros-cons li {
