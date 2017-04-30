@@ -175,12 +175,15 @@ margin-bottom: 30px;
 }
 
 #intro {
-  margin: auto;
+  width: 100%;
   text-align: center;
-  width: 70%;
-  border: solid #74D3AE 3px;
-  border-style: dashed;
-  margin-bottom: 30px;
+  background: #74D3AE;
+  opacity: 0.8;
+  padding: 60px 16%;
+}
+
+#intro h2 {
+  color: white;
 }
 
 #call {
