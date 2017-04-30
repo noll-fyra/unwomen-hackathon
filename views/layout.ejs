@@ -14,9 +14,6 @@
     <nav class="nav">
       <div class="nav-center nav-menu">
         <% var current = current ? current : ''; %>
-        <a class="nav-item <% if (current === 'home') { %>nav-item-active<% } %>" href="/">
-          Home
-        </a>
         <a class="nav-item <% if (current === 'decide') { %>nav-item-active<% } %>" href="/decide">
           Which Contraception?
         </a>
@@ -39,9 +36,44 @@
           <p>
             <strong>Love Confidently</strong>
           </p>
-          <p>
-            By ?
-          </p>
+          <div class="columns">
+            <div class="column is-3"></div>
+            <div class="column is-2">
+              <p style="text-align: center;">Maria</p>
+              <figure class="image is-96x96" style="margin: 0 auto;">
+                <img src="/images/maria.jpg" style="border-radius: 50px;">
+              </figure>
+            </div>
+            <div class="column is-2">
+              <p style="text-align: center;">Adam</p>
+              <figure class="image is-96x96" style="margin: 0 auto;">
+                <img src="/images/adam.png">
+              </figure>
+            </div>
+            <div class="column is-2">
+              <p style="text-align: center;">Hana</p>
+              <figure class="image is-96x96" style="margin: 0 auto;">
+                <img src="/images/Hana.jpg"  style="border-radius: 50px;">
+              </figure>
+            </div>
+            <div class="column is-3"></div>
+          </div>
+          <div class="columns">
+            <div class="column is-4"></div>
+            <div class="column is-2">
+              <p style="text-align: center;">Jonathan</p>
+              <figure class="image is-96x96" style="margin: 0 auto;">
+                <img src="/images/locavorus-large.png" style="border-radius: 50px;">
+              </figure>
+            </div>
+            <div class="column is-2">
+              <p style="text-align: center;">Luke</p>
+              <figure class="image is-96x96" style="margin: 0 auto;">
+                <img src="/images/luke.jpg"  style="border-radius: 50px;">
+              </figure>
+            </div>
+            <div class="column is-4"></div
+          </div>
         </div>
       </div>
     </footer>

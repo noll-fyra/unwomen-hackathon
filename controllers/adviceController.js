@@ -17,7 +17,8 @@ router.get('/seek/:id', (req, res) => {
 router.get('/medpro', (req, res) => {
   User.findOne({phone: '+6598639760'}, (err, adam) => {
     if (err) throw err
-    res.render('./advice/medPro', {twilio: twilio(adam.phone)})
+    twilio(adam.phone)
+    res.render('./advice/medPro')
   })
 })
 
@@ -29,6 +30,13 @@ router.get('/give/:id', (req, res) => {
       if (err) throw err
       res.render('./advice/give', {data: data, room: req.params.id, person: person})
     })
+  })
+})
+router.post('/give/:id', (req, res) => {
+  console.log(req.body)
+  User.findById(req.params.id).update({history: req.body.history}).exec((err, data) => {
+    if (err) throw err
+    res.redirect('/advice/medPro')
   })
 })
 

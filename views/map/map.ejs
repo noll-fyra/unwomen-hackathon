@@ -71,7 +71,7 @@
         list-style-type: none;
         padding: 0;
         margin: 0;
-        height: 271px;
+        height: 285px;
         overflow-y: scroll;
       }
       li {
@@ -86,7 +86,9 @@
       }
       #more {
         width: 100%;
-        margin: 27px 0 0 0;
+        margin: 0;
+        position: relative;
+        top: 25px;
       }
 
     </style>
@@ -165,6 +167,7 @@
         var infowindow = new google.maps.InfoWindow()
         for (var i = 0; i < places.length; i++) {
           var place = places[i]
+          console.log(place);
           var image = {
             url: place.icon,
             size: new google.maps.Size(71, 71),
@@ -185,10 +188,18 @@
             }
           })(marker, content, infowindow))
 
-          placesList.innerHTML += '<li>' + place.name + '</li>'
+          placesList.innerHTML += '<a href="#" class="map-link"><li><input type="hidden" value="' + marker.getPosition().lat() + ',' + marker.getPosition().lng() + '">' + place.name + '</li></a>'
 
           bounds.extend(place.geometry.location)
         }
+        document.getElementById('places').addEventListener('click', function(event) {
+          var clickedElement = event.target
+          // if (clickedElement.className === 'map-link') {
+          var clickedValue = clickedElement.childNodes[0].value.split(',')
+          var clickedLatLng = new google.maps.LatLng(parseFloat(clickedValue[0]), parseFloat(clickedValue[1]))
+          calculateAndDisplayRoute(directionsService, directionsDisplay, clickedLatLng)
+          // map.panTo(clickedLatLng) map.setZoom(15) }
+        })
         map.fitBounds(bounds)
 
       }
