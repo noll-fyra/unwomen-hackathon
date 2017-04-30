@@ -1,34 +1,34 @@
 <div id='advice'>
 
-<h1>Advice</h1>
-Hello <%= person.name %>, type into the web chat below and click on 'Send' for medical advice. All your data in the chat is confidential and will not be passed on.
-<ul id="messages"></ul>
-<form action="">
-  <input id="m" autocomplete="off"/>
-  <button>Send</button>
-</form>
+  <h1>Advice</h1>
+  Hello
+  <%= person.name %>, type into the web chat below and click on 'Send' for medical advice. All your data in the chat is confidential and will not be passed on.
+  <ul id="messages"></ul>
+  <form action="">
+    <input id="m" autocomplete="off"/>
+    <button>Send</button>
+  </form>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<script>
-  var socket = io.connect()
-  var room = "<%= room %>"
-  socket.on('connect', function() {
-    socket.emit('seek', room)
-    console.log('joining ' + room)
-  })
-  // socket.on('disconnected', function() {   socket.emit('left', room)   console.log('leaving ' + room) }) var form = document.querySelector('form')
-  $('form').submit(function(e) {
-    socket.emit('chat message', {
-      message: $('#m').val(),
-      room: room
-    });
-    $('#m').val('');
-    return false;
-    e.preventDefault()
-  })
-  socket.on('chat message', function(msg) {
-    $('#messages').append($('<li>').text(msg));
-  })
-</script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    var socket = io.connect()
+    var room = "<%= room %>"
+    socket.on('connect', function() {
+      socket.emit('seek', room)
+      console.log('joining ' + room)
+    })
+    $('form').submit(function(e) {
+      socket.emit('chat message', {
+        message: $('#m').val(),
+        room: room
+      });
+      $('#m').val('');
+      return false;
+      e.preventDefault()
+    })
+    socket.on('chat message', function(msg) {
+      $('#messages').append($('<li>').text(msg));
+    })
+  </script>
 </div>

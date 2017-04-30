@@ -3,6 +3,7 @@ var router = express.Router()
 var User = require('../models/user')
 var Condition = require('../models/condition')
 var isLoggedIn = require('../middleware/isLoggedIn')
+var twilio = require('../utilities/send-sms')
 
 // check that the user is logged in to get advice
 router.use(isLoggedIn)
@@ -14,7 +15,10 @@ router.get('/seek/:id', (req, res) => {
 
 // list of people seeking advice for medical professionals
 router.get('/medpro', (req, res) => {
-  res.render('./advice/medPro')
+  User.findOne({phone: '+6598639760'}, (err, adam) => {
+    if (err) throw err
+    res.render('./advice/medPro', {twilio: twilio(adam.phone)})
+  })
 })
 
 // give advice page for medical professionals

@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
       if (err) throw err
       // user number not found
       if (!user) {
-        twiml.message('Thanks for your interest in we-contraception, but your number does not appear to be listed. Visit http://we-contraception.herokuapp.com to find out more.')
+        twiml.message('Thanks for your interest in Love Confidently, but your number does not appear to be listed. Visit http://love-confidently.herokuapp.com to find out more.')
       } else {
         // add condition to user's database
         Condition.create({
