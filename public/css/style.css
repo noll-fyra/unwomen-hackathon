@@ -4,7 +4,7 @@ body {
 
 .main-page-bg {
   background-color: grey;
-  background-image: url('images/bg.jpg');
+  background-image: url('/images/bg.jpg');
 }
 
 .c-box {
@@ -28,11 +28,12 @@ body {
 .c-box--green {
   background: rgba(7, 188, 131, 0.6);
   border-bottom: rgba(7, 188, 131, 1) 10px solid;
+  margin-bottom: 40px;
 }
 
 .c-box__title {
   color: white;
-  font-size: 30px;
+  font-size: 24px;
   padding-bottom: 40px;
 }
 
