@@ -1,27 +1,42 @@
-<h2>Dashboard</h2>
 <br/>
-<h3>Hello
-  <%- currentUser.name %></h3>
+<div id='profile'>
 
-<h3>my email:
-  <%- currentUser.email %></h3>
-<h3>my phone:
-  <%- currentUser.phone %></h3>
+<h2>Hello
+  <%- currentUser.name %></h2>
 
+<h2>Email:
+  <%- currentUser.email %></h2>
+<h2>Phone Number:
+  <%- currentUser.phone %></h2>
+
+</div>
+<hr />
+<h3>Consult</h3>
+<div id='medical'>
+If you are having side effects from using a contraceptive method or would like medical advice on contraceptive methods, please use our web chat to speak to a medical professional. Your information will be confidential and will not be passed on.
+<br />
+<br />
 <form class="" action="/advice/seek/<%- currentUser.id%>" method="get">
-  <input type="submit" name="" value="Speak to a medical professional">
+  <input id='medicalInput' type="submit" name="" value="Consult a Medical Professional">
 </form>
 
+</div>
+<hr />
+<div id='track'>
+
+<h3>Track</h3>
+Track Your Mood
+Enter the contraceptive type and brand that you are currently using. Click on Track Contraceptive and we will send you a daily sms to track your mood.
 <form id='add_contraceptive' action='/account' method='post'>
   <% var type = currentUser.contraceptiveType ? currentUser.contraceptiveType : 'type' %>
   <% var brand = currentUser.contraceptiveBrand ? currentUser.contraceptiveBrand : 'brand' %>
   <tr>
-    <td>Contraceptive Type</td>
+    <td>Contraceptive Type: </td>
     <td><input type='text' name='contraceptiveType' placeholder='Contraceptive Type' class='form-control' value='<%- type %>'></td>
   </tr>
 
   <tr>
-    <td>Contraceptive Brand</td>
+    <td>Contraceptive Brand: </td>
     <td><input type='text' name='contraceptiveBrand' placeholder='Contraceptive Brand' class='form-control' value="<%- brand %>"></td>
   </tr>
 
@@ -65,5 +80,6 @@
     options: {}
   });
 </script>
+</div>
 
 </div>
