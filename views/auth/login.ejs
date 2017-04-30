@@ -1,54 +1,40 @@
-<div class="content">
-  <nav>
-    <span class="nav-header">Login</span>
-  </nav>
-
-  <aside>
-    <input type="hidden" value="5">
-  </aside>
-
-  <main>
-    <section>
-      <table>
-        <form id="loginForm" action="/auth/login" method="POST">
-          <tbody>
-            <tr>
-              <td>
-                <label for="country">COUNTRY CODE*</label>
-              </td>
-              <td>
-                <input id="country" type="text" name="country" placeholder="65">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for="number">PHONE*</label>
-              </td>
-              <td>
-                <input id="number" type="text" name="number" placeholder="88230927">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for="password">PASSWORD*</label>
-              </td>
-              <td>
-                <input type="password" name="password" placeholder="pa55w0rd">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input id="phone" type="hidden" name="phone" value="">
-              </td>
-              <td>
-                <input id="submitForm" class="button" type="button" value="Login">
-              </td>
-            </tr>
-          </tbody>
-        </form>
-      </table>
-    </section>
-  </main>
+<div class="container c-map-form">
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column">
+      <h2>Login</h2>
+      <aside>
+        <input type="hidden" value="5">
+      </aside>
+      <form id="loginForm" action="/auth/login" method="POST">
+        <div class="field">
+          <label class="label" for='country'>Country Code</label>
+          <p class="control">
+            <input class="input" name="country" id="country" type="text" placeholder="Country Code">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for='number'>Phone Number</label>
+          <p class="control">
+            <input class="input" name="number" id="number" type="text" placeholder="Phone Number">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for='password'>Password</label>
+          <p class="control">
+            <input class="input" name="password" id="password" type="password" placeholder="Password">
+          </p>
+        </div>
+        <input id="phone" type="hidden" name="phone" value="">
+        <div class="field">
+          <p class="control">
+            <input id="submitForm" class="button is-primary" type="button" value="Login">
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="column"></div>
+  </div>
 </div>
 
 <script>

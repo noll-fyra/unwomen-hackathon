@@ -97,14 +97,6 @@ h4 {
   opacity:.1;
 }
 
-.mapForm {
-  margin-top: 30px;
-}
-
-.mapInput {
-  margin-top: 30px;
-}
-
 button {
   background-color: #74D3AE;
     border: none;
@@ -154,17 +146,6 @@ margin-bottom: 30px;
 
 .c-pros-cons li {
   margin-bottom: 10px;
-}
-
-#findYourAddress {
-  background-color: #74D3AE;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
 }
 
 .decide {
@@ -246,4 +227,9 @@ input {
   width: 80%;
   margin-right: auto;
   margin-left: auto;
+}
+
+.c-map-form {
+  margin-top: 80px;
+  margin-bottom: 80px;
 }

@@ -1,65 +1,84 @@
-<div class=mapForm>
+<div class="container c-map-form">
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column">
+      <h2>Enter your address or use current location to search for healthcare providers near you:</h2>
+      <div class="mapInput">
+        <form class="" action="/map" method="post">
+          <div class="field">
+            <label class="label" for='address'>Address</label>
+            <p class="control">
+              <input class="input" name="address" id="address" type="text" placeholder="Address">
+            </p>
+          </div>
+          <div class="field is-grouped">
+            <p class="control">
+              <input id="findYourAddress" type="submit" name="" value="find address" class="button is-primary" />
+            </p>
+            <p class="control">
+              <button id="getLocationButton" type="button" class="button is-primary" >Or use your current location</button>
+            </p>
+            
+          </div>
+        </form>
+        <form id="yourLocationForm" class="" action="/map" method="post">
+          <input type="hidden" id="yourLat" name="yourLat" value="">
+          <input type="hidden" id="yourLong" name="yourLong" value="">
+        </form>
+        
+        <p id="notSupported"></p>
 
-<h2>Enter your address or use current location to search for healthcare providers near you:</h2>
+        <script>
+          var notSupported = document.getElementById("notSupported")
+          var getLocationButton = document.getElementById("getLocationButton")
+          var yourLat = document.getElementById("yourLat")
+          var yourLong = document.getElementById("yourLong")
+          var yourLocationForm = document.getElementById("yourLocationForm")
 
-<div class=mapInput>
+          getLocationButton.addEventListener('click', () => {
+            getLocation()
+          })
 
+<<<<<<< HEAD
 Address Information: <form class="" action="/map" method="post">
   <input type="text" name="address" value="">
   <input id="findYourAddress" type="submit" name="" value="find address">
 </form>
+=======
+          function getLocation() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(useYourLocation, showError)
+            } else {
+              notSupported.innerHTML = "Geolocation is not supported by this browser."
+            }
+          }
+>>>>>>> 5a07b29d85c7e5903e80a853f17d72c727cc40bd
 
-<form id="yourLocationForm" class="" action="/map" method="post">
-  <input type="hidden" id="yourLat" name="yourLat" value="">
-  <input type="hidden" id="yourLong" name="yourLong" value="">
-  <button id="getLocationButton" type="button">
-    Or use your current location</button>
-</form>
+          function useYourLocation(position) {
+            yourLat.value = position.coords.latitude
+            yourLong.value = position.coords.longitude
+            yourLocationForm.submit()
+          }
 
-<p id="notSupported"></p>
-
-<script>
-  var notSupported = document.getElementById("notSupported")
-  var getLocationButton = document.getElementById("getLocationButton")
-  var yourLat = document.getElementById("yourLat")
-  var yourLong = document.getElementById("yourLong")
-  var yourLocationForm = document.getElementById("yourLocationForm")
-
-  getLocationButton.addEventListener('click', () => {
-    getLocation()
-  })
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(useYourLocation, showError)
-    } else {
-      notSupported.innerHTML = "Geolocation is not supported by this browser."
-    }
-  }
-
-  function useYourLocation(position) {
-    yourLat.value = position.coords.latitude
-    yourLong.value = position.coords.longitude
-    yourLocationForm.submit()
-  }
-
-  function showError(error) {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        x.innerHTML = "User denied the request for Geolocation."
-        break
-      case error.POSITION_UNAVAILABLE:
-        x.innerHTML = "Location information is unavailable."
-        break
-      case error.TIMEOUT:
-        x.innerHTML = "The request to get user location timed out."
-        break
-      case error.UNKNOWN_ERROR:
-        x.innerHTML = "An unknown error occurred."
-        break
-    }
-  }
-</script>
-
-</div>
+          function showError(error) {
+            switch (error.code) {
+              case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break
+              case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break
+              case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break
+              case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break
+            }
+          }
+        </script>
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
 </div>
