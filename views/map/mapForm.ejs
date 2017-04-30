@@ -39,6 +39,12 @@
             getLocation()
           })
 
+<<<<<<< HEAD
+Address Information: <form class="" action="/map" method="post">
+  <input type="text" name="address" value="">
+  <input id="findYourAddress" type="submit" name="" value="find address">
+</form>
+=======
           function getLocation() {
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(useYourLocation, showError)
@@ -46,6 +52,7 @@
               notSupported.innerHTML = "Geolocation is not supported by this browser."
             }
           }
+>>>>>>> 5a07b29d85c7e5903e80a853f17d72c727cc40bd
 
           function useYourLocation(position) {
             yourLat.value = position.coords.latitude
