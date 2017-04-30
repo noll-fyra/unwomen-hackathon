@@ -4,7 +4,7 @@ body {
 
 .main-page-bg {
   background-color: grey;
-  background-image: url('/images/bg.jpg');
+  background-image: url('/bg.jpg');
 }
 
 .c-box {
@@ -28,26 +28,23 @@ body {
 .c-box--green {
   background: rgba(7, 188, 131, 0.6);
   border-bottom: rgba(7, 188, 131, 1) 10px solid;
-  margin-bottom: 40px;
 }
 
 .c-box__title {
   color: white;
-  font-size: 24px;
+  font-size: 30px;
   padding-bottom: 40px;
 }
 
 h1 {
-  color: #788585;
-  /*grey*/
+  color: #788585; /*grey*/
   font-size: 35px;
   font-weight: bold;
   font-family: Tahoma;
 }
 
 h2 {
-  color: #788585;
-  /*grey*/
+  color: #788585; /*grey*/
   font-size: 27px;
   font-weight: bold;
   font-family: Tahoma;
@@ -55,31 +52,28 @@ h2 {
 
 h3 {
   text-align: center;
-  color: #74D3AE;
-  /*lemon green*/
+  color: #74D3AE; /*lemon green*/
   font-size: 50px;
   font-weight: bold;
   font-family: 'Bree Serif', serif;
 }
 
 h4 {
-  color: #788585;
-  /*grey*/
+  color: #788585; /*grey*/
   font-size: 20px;
   font-weight: bold;
   font-family: Tahoma;
 }
 
 .nav {
-  background-color: #74D3AE;
-  /*lemon green*/
+  background-color: #74D3AE; /*lemon green*/
 }
 
 .nav-item a, a.nav-item, .nav-item a:hover, a.nav-item:hover {
-  color: white;
+    color: white;
 }
 
-.nav-item-active, .nav-item:hover {
+.nav-item-active, .nav-item:hover{
   background-color: #788585;
 }
 
@@ -95,60 +89,60 @@ h4 {
   margin: 20px;
 }
 
-.c-options__option a p {
-  display: block;
+.c-options__option a p{
+  display:block;
 }
 
 .c-options__option--inactive {
-  opacity: .1;
+  opacity:.1;
 }
 
 button {
   background-color: #74D3AE;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .button {
   background-color: #74D3AE;
-  border: none;
-  color: white;
-  padding: auto 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    border: none;
+    color: white;
+    padding: auto 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .opButton {
   background-color: #74D3AE;
-  border: none;
-  color: white;
-  padding: 30px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    border: none;
+    color: white;
+    padding: 30px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #optionButtons {
-  text-align: center;
-  margin-bottom: 30px;
+text-align: center;
+margin-top: 100px;
+margin-bottom: 30px;
 }
 
 .c-pros-cons {
   list-style: disc;
   padding: 10px;
-  font-size: 14px;
 }
 
 .c-pros-cons li {
@@ -160,6 +154,7 @@ button {
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 #decideButton {
@@ -167,8 +162,13 @@ button {
   margin-bottom: 50px;
 }
 
-.hide {
-  display: none;
+#decideButton:hover{
+  cursor:pointer;
+  background-color: #788585;
+}
+
+.hide{
+  display:none;
 }
 
 #chart {
@@ -196,14 +196,14 @@ button {
 }
 
 input {
-  padding: 0;
-  height: 40px;
-  margin-right: 10px;
-  outline: none;
-  border: 1px solid #cdcdcd;
-  border-color: rgba(0, 0, 0, .15);
-  background-color: white;
-  font-size: 16px;
+    padding: 0;
+    height: 40px;
+    margin-right: 10px;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    font-size: 16px;
 }
 
 #profile {
@@ -222,6 +222,8 @@ input {
 
 #medicalInput {
   font-size: 18px;
+  color: white;
+  background-color: rgb(178,34,34);
   margin-left: 10px;
   padding: 10px 10px;
 }
