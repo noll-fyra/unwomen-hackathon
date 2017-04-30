@@ -1,0 +1,248 @@
+body {
+  font-size: 20px;
+}
+
+.main-page-bg {
+  background-color: grey;
+  background-image: url('/bg.jpg');
+}
+
+.c-box {
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: green 5px solid;
+}
+
+.c-box--blue {
+  background: rgba(25, 144, 206, 0.6);
+  border-bottom: rgba(25, 144, 206, 1) 10px solid;
+  margin-top: 40px;
+}
+
+.c-box--aqua {
+  background: rgba(2, 184, 191, 0.6);
+  border-bottom: 10px solid rgba(2, 184, 191, 1);
+  margin-bottom: 40px;
+}
+
+.c-box--green {
+  background: rgba(7, 188, 131, 0.6);
+  border-bottom: rgba(7, 188, 131, 1) 10px solid;
+}
+
+.c-box__title {
+  color: white;
+  font-size: 30px;
+  padding-bottom: 40px;
+}
+
+h1 {
+  color: #788585; /*grey*/
+  font-size: 35px;
+  font-weight: bold;
+  font-family: Tahoma;
+}
+
+h2 {
+  color: #788585; /*grey*/
+  font-size: 27px;
+  font-weight: bold;
+  font-family: Tahoma;
+}
+
+h3 {
+  text-align: center;
+  color: #74D3AE; /*lemon green*/
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Bree Serif', serif;
+}
+
+h4 {
+  color: #788585; /*grey*/
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Tahoma;
+}
+
+.nav {
+  background-color: #74D3AE; /*lemon green*/
+}
+
+.nav-item a, a.nav-item, .nav-item a:hover, a.nav-item:hover {
+    color: white;
+}
+
+.nav-item-active, .nav-item:hover{
+  background-color: #788585;
+}
+
+.c-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.c-options__option {
+  height: 200px;
+  width: 25%;
+  margin: 20px;
+}
+
+.c-options__option a p{
+  display:block;
+}
+
+.c-options__option--inactive {
+  opacity:.1;
+}
+
+button {
+  background-color: #74D3AE;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button {
+  background-color: #74D3AE;
+    border: none;
+    color: white;
+    padding: auto 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.opButton {
+  background-color: #74D3AE;
+    border: none;
+    color: white;
+    padding: 30px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#optionButtons {
+text-align: center;
+margin-top: 100px;
+margin-bottom: 30px;
+}
+
+.c-pros-cons {
+  list-style: disc;
+  padding: 10px;
+}
+
+.c-pros-cons li {
+  margin-bottom: 10px;
+}
+
+.decide {
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#decideButton {
+  margin-right: 10px;
+  margin-bottom: 50px;
+}
+
+#decideButton:hover{
+  cursor:pointer;
+  background-color: #788585;
+}
+
+.hide{
+  display:none;
+}
+
+#chart {
+  width: 40%;
+  margin-left: 10%;
+}
+
+#intro {
+  width: 100%;
+  text-align: center;
+  background: #74D3AE;
+  opacity: 0.8;
+  padding: 60px 25%;
+}
+
+#intro h2 {
+  color: white;
+}
+
+#call {
+  margin: auto;
+  width: 50%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+input {
+    padding: 0;
+    height: 40px;
+    margin-right: 10px;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    font-size: 16px;
+}
+
+#profile {
+  margin-bottom: 40px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#medical {
+  margin-bottom: 40px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#medicalInput {
+  font-size: 18px;
+  color: white;
+  background-color: rgb(178,34,34);
+  margin-left: 10px;
+  padding: 10px 10px;
+}
+
+#track {
+  margin-bottom: 40px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c-map-form {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+#advice {
+  margin-bottom: 40px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
