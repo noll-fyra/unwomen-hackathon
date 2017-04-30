@@ -1,6 +1,7 @@
 var schedule = require('node-schedule')
 var twilio = require('twilio')
 
+// create track schedule
 function create (user) {
   var startTime = new Date()
   var endTime = new Date(startTime.getTime() + 8 * 7 * 24 * 60 * 60 * 1000)
@@ -9,6 +10,7 @@ function create (user) {
   })
 }
 
+// cancel track schedule
 function cancel (user) {
   var job = schedule.scheduledJobs[user.id]
   job.cancel()

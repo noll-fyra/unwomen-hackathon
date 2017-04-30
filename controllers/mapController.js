@@ -2,12 +2,13 @@ var express = require('express')
 var router = express.Router()
 var geocoder = require('geocoder')
 
-// the home page
-router.get('/', (req, res) => {
+// map form
+router.route('/')
+.get((req, res) => {
   res.render('./map/mapForm', {current: 'map'})
 })
-
-router.post('/', (req, res) => {
+// actual map
+.post((req, res) => {
   console.log(req.body)
   if (req.body.address) {
     geocoder.geocode(req.body.address, (err, data) => {

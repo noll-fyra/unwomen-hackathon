@@ -12,7 +12,7 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
     hormone_altering: 'false',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'tubal-ligation',
     name: 'Tubal Ligation',
@@ -26,7 +26,7 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
     hormone_altering: 'false',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'sponge',
     name: 'Sponge',
@@ -40,7 +40,7 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'at_the_time', // at_the_time, routine, never
     hormone_altering: 'false',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'minipill',
     name: 'Minipill',
@@ -54,7 +54,7 @@ const options = [
     need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
     hormone_altering: 'true',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'morning-after-pill',
     name: 'Morning After Pill',
@@ -68,7 +68,7 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'at_the_time', // at_the_time, routine, never
     hormone_altering: 'true',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'contraceptive-ring',
     name: 'Contraceptive Ring',
@@ -82,7 +82,7 @@ const options = [
     need_to_be_well_organised: 'true',
     when_think_about: 'at_the_time', // at_the_time, routine, never
     hormone_altering: 'true',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'condom',
     name: 'Condom',
@@ -96,7 +96,7 @@ const options = [
     need_to_be_well_organised: 'true',
     when_think_about: 'at_the_time', // at_the_time, routine, never
     hormone_altering: false,
-    description: 'description',
+    description: 'description'
   }, {
     id: 'iud-progestogen',
     name: 'IUD with Progestogen',
@@ -110,7 +110,7 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
     hormone_altering: 'true',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'iud-copper',
     name: 'IUD with Copper',
@@ -124,7 +124,7 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
     hormone_altering: 'false',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'female-condom',
     name: 'Female Condom',
@@ -138,7 +138,7 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'at_the_time', // at_the_time, routine, never
     hormone_altering: 'false',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'contraceptive-injection',
     name: 'Contraceptive Injection',
@@ -152,7 +152,7 @@ const options = [
     need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
     hormone_altering: 'true',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'contraceptive-patch',
     name: 'Contraceptive Patch',
@@ -166,7 +166,7 @@ const options = [
     need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
     hormone_altering: 'true',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'contraceptive-implant',
     name: 'Contraceptive Implant',
@@ -180,7 +180,7 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'never', // at_the_time, routine, never
     hormone_altering: 'true',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'contraceptive-pill',
     name: 'Contraceptive Pill',
@@ -194,7 +194,7 @@ const options = [
     need_to_be_well_organised: 'true',
     when_think_about: 'routine', // at_the_time, routine, never
     hormone_altering: 'true',
-    description: 'description',
+    description: 'description'
   }, {
     id: 'withdrawal-method',
     name: 'Withdrawal Method',
@@ -208,8 +208,8 @@ const options = [
     need_to_be_well_organised: 'false',
     when_think_about: 'at_the_time', // at_the_time, routine, never
     hormone_altering: 'false',
-    description: 'description',
+    description: 'description'
   }
 ]
 
-module.exports = options;
+module.exports = options
