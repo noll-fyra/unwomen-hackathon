@@ -175,12 +175,15 @@ margin-bottom: 30px;
 }
 
 #intro {
-  margin: auto;
+  width: 100%;
   text-align: center;
-  width: 70%;
-  border: solid #74D3AE 3px;
-  border-style: dashed;
-  margin-bottom: 30px;
+  background: #74D3AE;
+  opacity: 0.8;
+  padding: 60px 16%;
+}
+
+#intro h2 {
+  color: white;
 }
 
 #call {
@@ -217,9 +220,10 @@ input {
 
 #medicalInput {
   font-size: 18px;
+  color: white;
   background-color: rgb(178,34,34);
   margin-left: 10px;
-  padding: 5px 5px;
+  padding: 10px 10px;
 }
 
 #track {
@@ -232,4 +236,11 @@ input {
 .c-map-form {
   margin-top: 80px;
   margin-bottom: 80px;
+}
+
+#advice {
+  margin-bottom: 40px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 }
