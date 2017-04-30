@@ -1,54 +1,70 @@
 <div id='advice'>
-
   <h1>Provide Advice</h1>
-  You are speaking to
-  <%= person.name %>.
-  <ul id="messages"></ul>
-  <form class="messageForm" action="">
-    <input id="m" autocomplete="off"/>
-    <button>Send</button>
-  </form>
+  <div class="columns">
+    <div class="column">
+      <p>You are speaking to <%= person.name %>.</p>
+      <div class="c-messages">
+        <ul id="messages"></ul>
+      </div>
+      <form class="messageForm" action="">
+        <div class="field has-addons">
+          <p class="control">
+            <input class="input" name="message" id="m" type="text" placeholder="Type your message">
+          </p>
+          <p class="control">
+            <button class="button is-info" style="margin-top: 0;">
+              Send
+            </button>
+          </p>
+        </div>
+  
+      </form>
+      <form class="history" action="/advice/give/<%- room %>" method="post">
+        <p class="control">
+          <textarea rows="12" cols="50" style="width: 100%; margin-top: 40px;" name="history"><%- person.history %></textarea>
+        </p>
+        <p class="control">
+          <button type="submit" name="" class="button">Save history</button>
+        </p>
+      </form>
+    </div>
+    <div class="column">
+      <div id="chart"> 
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
+        <script>
+          var levels = '<%- data.map((item) => { return item.level }).join(",") %>'.split(',')
+          levels = levels.map((item) => {
+            return parseInt(item)
+          })
+          var labels = levels.map((item, index) => {
+            return index + 1
+          })
 
-  <div>
-    <form class="history" action="/advice/give/<%- room %>" method="post">
-      <input type="textarea" rows="12" cols="50" name="history" value='<%- person.history %>'>
-      <button type="submit" name="">Save history</button>
-    </form>
+          var ctx = document.getElementById("myChart").getContext("2d")
+          var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [
+                {
+                  label: 'Happiness over time',
+                  fill: false,
+                  data: levels,
+                  borderColor: 'black',
+                  borderWidth: 10
+                }
+              ]
+            },
+            options: {}
+          });
+        </script>
+
+      </div>
+    </div>
   </div>
 
-  <div id="chart">
-
-    <canvas id="myChart" width="400" height="400"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
-    <script>
-      var levels = '<%- data.map((item) => { return item.level }).join(",") %>'.split(',')
-      levels = levels.map((item) => {
-        return parseInt(item)
-      })
-      var labels = levels.map((item, index) => {
-        return index + 1
-      })
-
-      var ctx = document.getElementById("myChart").getContext("2d")
-      var lineChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: 'Happiness over time',
-              fill: false,
-              data: levels,
-              borderColor: 'black',
-              borderWidth: 10
-            }
-          ]
-        },
-        options: {}
-      });
-    </script>
-
-  </div>
+  
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
