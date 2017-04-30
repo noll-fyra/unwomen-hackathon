@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
       when_think_about: req.query.when_think_about,
       hormone_altering: req.query.hormone_altering
     };
-    res.render('./decide/decide', {users: data, options: contraceptionOptions, filteredOptions: filteredOptions, formValues: formValues})
+    res.render('./decide/decide', {users: data, options: contraceptionOptions, filteredOptions: filteredOptions, formValues: formValues, current: 'decide'})
   })
 })
 
